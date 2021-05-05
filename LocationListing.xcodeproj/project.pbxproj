@@ -11,15 +11,23 @@
 		D76818DFC426F8A6D8282F4A /* Pods_LocationListing_LocationListingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868CD9FAF54319F06ED2B08B /* Pods_LocationListing_LocationListingUITests.framework */; };
 		E06EE97226428BE60079D1DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE97126428BE60079D1DA /* AppDelegate.swift */; };
 		E06EE97426428BE60079D1DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE97326428BE60079D1DA /* SceneDelegate.swift */; };
-		E06EE97626428BE60079D1DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE97526428BE60079D1DA /* ViewController.swift */; };
 		E06EE97B26428BE70079D1DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E06EE97A26428BE70079D1DA /* Assets.xcassets */; };
 		E06EE97E26428BE70079D1DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E06EE97C26428BE70079D1DA /* LaunchScreen.storyboard */; };
 		E06EE98926428BE70079D1DA /* LocationListingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE98826428BE70079D1DA /* LocationListingTests.swift */; };
 		E06EE99426428BE70079D1DA /* LocationListingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE99326428BE70079D1DA /* LocationListingUITests.swift */; };
 		E06EE9A22642914A0079D1DA /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE9A12642914A0079D1DA /* TabBarViewController.swift */; };
-		E06EE9A42642921E0079D1DA /* LocationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE9A32642921E0079D1DA /* LocationListViewController.swift */; };
+		E06EE9A42642921E0079D1DA /* PersonsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE9A32642921E0079D1DA /* PersonsListViewController.swift */; };
 		E06EE9AA264293000079D1DA /* MultiLocationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE9A9264293000079D1DA /* MultiLocationMapViewController.swift */; };
 		E06EE9AF26429A540079D1DA /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E06EE9AE26429A540079D1DA /* Colors.xcassets */; };
+		E06EE9B12642A3F20079D1DA /* PersonsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE9B02642A3F20079D1DA /* PersonsListTableViewCell.swift */; };
+		E06EE9B32642A4D10079D1DA /* PersonsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE9B22642A4D10079D1DA /* PersonsListViewModel.swift */; };
+		E06EE9B72642A6020079D1DA /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE9B62642A6020079D1DA /* Person.swift */; };
+		E06EE9BB2642A6760079D1DA /* DAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE9BA2642A6760079D1DA /* DAPI.swift */; };
+		E06EE9BE2642A9E30079D1DA /* PersonListSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE9BD2642A9E30079D1DA /* PersonListSample.swift */; };
+		E06EE9C02642AA200079D1DA /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE9BF2642AA200079D1DA /* MockData.swift */; };
+		E06EE9C22642AC940079D1DA /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE9C12642AC940079D1DA /* APIService.swift */; };
+		E06EE9C52642B35E0079D1DA /* PersonName.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE9C42642B35E0079D1DA /* PersonName.swift */; };
+		E06EE9C82642B5030079D1DA /* LatLon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE9C72642B5030079D1DA /* LatLon.swift */; };
 		E4CECEE5A089010B6853AE90 /* Pods_LocationListing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D16AFE84E808DC604BDBB0E3 /* Pods_LocationListing.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,7 +59,6 @@
 		E06EE96E26428BE60079D1DA /* LocationListing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocationListing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E06EE97126428BE60079D1DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E06EE97326428BE60079D1DA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E06EE97526428BE60079D1DA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E06EE97A26428BE70079D1DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E06EE97D26428BE70079D1DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E06EE97F26428BE70079D1DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -62,9 +69,18 @@
 		E06EE99326428BE70079D1DA /* LocationListingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListingUITests.swift; sourceTree = "<group>"; };
 		E06EE99526428BE70079D1DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E06EE9A12642914A0079D1DA /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
-		E06EE9A32642921E0079D1DA /* LocationListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListViewController.swift; sourceTree = "<group>"; };
+		E06EE9A32642921E0079D1DA /* PersonsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonsListViewController.swift; sourceTree = "<group>"; };
 		E06EE9A9264293000079D1DA /* MultiLocationMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiLocationMapViewController.swift; sourceTree = "<group>"; };
 		E06EE9AE26429A540079D1DA /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		E06EE9B02642A3F20079D1DA /* PersonsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonsListTableViewCell.swift; sourceTree = "<group>"; };
+		E06EE9B22642A4D10079D1DA /* PersonsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonsListViewModel.swift; sourceTree = "<group>"; };
+		E06EE9B62642A6020079D1DA /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		E06EE9BA2642A6760079D1DA /* DAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAPI.swift; sourceTree = "<group>"; };
+		E06EE9BD2642A9E30079D1DA /* PersonListSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListSample.swift; sourceTree = "<group>"; };
+		E06EE9BF2642AA200079D1DA /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		E06EE9C12642AC940079D1DA /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		E06EE9C42642B35E0079D1DA /* PersonName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonName.swift; sourceTree = "<group>"; };
+		E06EE9C72642B5030079D1DA /* LatLon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatLon.swift; sourceTree = "<group>"; };
 		E948A7613857BAACC1E067BE /* Pods-LocationListing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocationListing.release.xcconfig"; path = "Target Support Files/Pods-LocationListing/Pods-LocationListing.release.xcconfig"; sourceTree = "<group>"; };
 		F9F3E6DB8C0BBBFC39FD377E /* Pods-LocationListing-LocationListingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocationListing-LocationListingUITests.debug.xcconfig"; path = "Target Support Files/Pods-LocationListing-LocationListingUITests/Pods-LocationListing-LocationListingUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -148,12 +164,12 @@
 				E06EE9A5264292220079D1DA /* Modules */,
 				E06EE97126428BE60079D1DA /* AppDelegate.swift */,
 				E06EE97326428BE60079D1DA /* SceneDelegate.swift */,
-				E06EE97526428BE60079D1DA /* ViewController.swift */,
 				E06EE9A12642914A0079D1DA /* TabBarViewController.swift */,
 				E06EE97A26428BE70079D1DA /* Assets.xcassets */,
 				E06EE9AE26429A540079D1DA /* Colors.xcassets */,
 				E06EE97C26428BE70079D1DA /* LaunchScreen.storyboard */,
 				E06EE97F26428BE70079D1DA /* Info.plist */,
+				E06EE9B82642A6340079D1DA /* Services */,
 			);
 			path = LocationListing;
 			sourceTree = "<group>";
@@ -179,19 +195,21 @@
 		E06EE9A5264292220079D1DA /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				E06EE9A6264292270079D1DA /* LocationList */,
+				E06EE9A6264292270079D1DA /* PersonsList */,
 				E06EE9A7264292420079D1DA /* MultiLocationMap */,
 				E06EE9A8264292D60079D1DA /* SingleLocationMap */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
 		};
-		E06EE9A6264292270079D1DA /* LocationList */ = {
+		E06EE9A6264292270079D1DA /* PersonsList */ = {
 			isa = PBXGroup;
 			children = (
-				E06EE9A32642921E0079D1DA /* LocationListViewController.swift */,
+				E06EE9A32642921E0079D1DA /* PersonsListViewController.swift */,
+				E06EE9B02642A3F20079D1DA /* PersonsListTableViewCell.swift */,
+				E06EE9B22642A4D10079D1DA /* PersonsListViewModel.swift */,
 			);
-			path = LocationList;
+			path = PersonsList;
 			sourceTree = "<group>";
 		};
 		E06EE9A7264292420079D1DA /* MultiLocationMap */ = {
@@ -209,6 +227,60 @@
 			path = SingleLocationMap;
 			sourceTree = "<group>";
 		};
+		E06EE9B52642A5F70079D1DA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E06EE9C62642B4A70079D1DA /* Person */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E06EE9B82642A6340079D1DA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E06EE9B92642A63D0079D1DA /* NetworkService */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E06EE9B92642A63D0079D1DA /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				E06EE9C12642AC940079D1DA /* APIService.swift */,
+				E06EE9B52642A5F70079D1DA /* Model */,
+				E06EE9C32642AD9D0079D1DA /* APIs */,
+				E06EE9BC2642A9C90079D1DA /* MockData */,
+			);
+			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		E06EE9BC2642A9C90079D1DA /* MockData */ = {
+			isa = PBXGroup;
+			children = (
+				E06EE9BF2642AA200079D1DA /* MockData.swift */,
+				E06EE9BD2642A9E30079D1DA /* PersonListSample.swift */,
+			);
+			path = MockData;
+			sourceTree = "<group>";
+		};
+		E06EE9C32642AD9D0079D1DA /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+				E06EE9BA2642A6760079D1DA /* DAPI.swift */,
+			);
+			path = APIs;
+			sourceTree = "<group>";
+		};
+		E06EE9C62642B4A70079D1DA /* Person */ = {
+			isa = PBXGroup;
+			children = (
+				E06EE9B62642A6020079D1DA /* Person.swift */,
+				E06EE9C42642B35E0079D1DA /* PersonName.swift */,
+				E06EE9C72642B5030079D1DA /* LatLon.swift */,
+			);
+			path = Person;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -218,6 +290,7 @@
 			buildPhases = (
 				DFDCF57DB073704FB885ED70 /* [CP] Check Pods Manifest.lock */,
 				E06EE96A26428BE60079D1DA /* Sources */,
+				E06EE9B42642A59B0079D1DA /* SwiftLint */,
 				E06EE96B26428BE60079D1DA /* Frameworks */,
 				E06EE96C26428BE60079D1DA /* Resources */,
 				AED1EE348E501F38E9ADFF07 /* [CP] Embed Pods Frameworks */,
@@ -476,6 +549,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E06EE9B42642A59B0079D1DA /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n \"${PODS_ROOT}/SwiftLint/swiftlint\" && \"${PODS_ROOT}/SwiftLint/swiftlint\" autocorrect\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -483,11 +574,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E06EE9C82642B5030079D1DA /* LatLon.swift in Sources */,
+				E06EE9C22642AC940079D1DA /* APIService.swift in Sources */,
+				E06EE9C52642B35E0079D1DA /* PersonName.swift in Sources */,
 				E06EE9AA264293000079D1DA /* MultiLocationMapViewController.swift in Sources */,
+				E06EE9B12642A3F20079D1DA /* PersonsListTableViewCell.swift in Sources */,
+				E06EE9BE2642A9E30079D1DA /* PersonListSample.swift in Sources */,
 				E06EE9A22642914A0079D1DA /* TabBarViewController.swift in Sources */,
-				E06EE97626428BE60079D1DA /* ViewController.swift in Sources */,
-				E06EE9A42642921E0079D1DA /* LocationListViewController.swift in Sources */,
+				E06EE9BB2642A6760079D1DA /* DAPI.swift in Sources */,
+				E06EE9B32642A4D10079D1DA /* PersonsListViewModel.swift in Sources */,
+				E06EE9A42642921E0079D1DA /* PersonsListViewController.swift in Sources */,
 				E06EE97226428BE60079D1DA /* AppDelegate.swift in Sources */,
+				E06EE9B72642A6020079D1DA /* Person.swift in Sources */,
+				E06EE9C02642AA200079D1DA /* MockData.swift in Sources */,
 				E06EE97426428BE60079D1DA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

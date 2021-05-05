@@ -6,11 +6,14 @@
 //
 
 import UIKit
+import Moya
 
-class TabBarController: UITabBarController {
-    
-    lazy private var firstVC: LocationListViewController = {
-        let viewController = LocationListViewController()
+final class TabBarController: UITabBarController {
+
+    lazy private var firstVC: PersonsListViewController = {
+        let apiService = APIService()
+        let viewModel = PersonsListViewModel(apiService: apiService)
+        let viewController = PersonsListViewController(viewModel: viewModel)
         let title = "List View"
         let image = UIImage(systemName: "info.circle")
         let selectedImage = UIImage(systemName: "info.circle.fill")
@@ -19,7 +22,7 @@ class TabBarController: UITabBarController {
         viewController.tabBarItem = tabBarItem
         return viewController
     }()
-    
+
     lazy private var secondVC: MultiLocationMapViewController = {
         let viewController = MultiLocationMapViewController()
         let title = "Map View"
@@ -31,33 +34,15 @@ class TabBarController: UITabBarController {
         viewController.tabBarItem = tabBarItem
         return viewController
     }()
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.viewControllers = [firstVC, secondVC]
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
-}
 
-extension TabBarController: UITabBarControllerDelegate {
-    
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        print("Selected \(viewController.title!)")
-    }
-    
 }
