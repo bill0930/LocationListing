@@ -19,6 +19,7 @@
 		E06EE9A22642914A0079D1DA /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE9A12642914A0079D1DA /* TabBarViewController.swift */; };
 		E06EE9A42642921E0079D1DA /* LocationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE9A32642921E0079D1DA /* LocationListViewController.swift */; };
 		E06EE9AA264293000079D1DA /* MultiLocationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE9A9264293000079D1DA /* MultiLocationMapViewController.swift */; };
+		E06EE9AF26429A540079D1DA /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E06EE9AE26429A540079D1DA /* Colors.xcassets */; };
 		E4CECEE5A089010B6853AE90 /* Pods_LocationListing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D16AFE84E808DC604BDBB0E3 /* Pods_LocationListing.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		E06EE9A12642914A0079D1DA /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		E06EE9A32642921E0079D1DA /* LocationListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListViewController.swift; sourceTree = "<group>"; };
 		E06EE9A9264293000079D1DA /* MultiLocationMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiLocationMapViewController.swift; sourceTree = "<group>"; };
+		E06EE9AE26429A540079D1DA /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		E948A7613857BAACC1E067BE /* Pods-LocationListing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocationListing.release.xcconfig"; path = "Target Support Files/Pods-LocationListing/Pods-LocationListing.release.xcconfig"; sourceTree = "<group>"; };
 		F9F3E6DB8C0BBBFC39FD377E /* Pods-LocationListing-LocationListingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocationListing-LocationListingUITests.debug.xcconfig"; path = "Target Support Files/Pods-LocationListing-LocationListingUITests/Pods-LocationListing-LocationListingUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,6 +151,7 @@
 				E06EE97526428BE60079D1DA /* ViewController.swift */,
 				E06EE9A12642914A0079D1DA /* TabBarViewController.swift */,
 				E06EE97A26428BE70079D1DA /* Assets.xcassets */,
+				E06EE9AE26429A540079D1DA /* Colors.xcassets */,
 				E06EE97C26428BE70079D1DA /* LaunchScreen.storyboard */,
 				E06EE97F26428BE70079D1DA /* Info.plist */,
 			);
@@ -316,6 +319,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E06EE9AF26429A540079D1DA /* Colors.xcassets in Resources */,
 				E06EE97E26428BE70079D1DA /* LaunchScreen.storyboard in Resources */,
 				E06EE97B26428BE70079D1DA /* Assets.xcassets in Resources */,
 			);
