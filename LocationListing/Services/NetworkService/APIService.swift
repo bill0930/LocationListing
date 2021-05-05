@@ -21,10 +21,20 @@ private func JSONResponseDataFormatter(_ data: Data) -> String {
 private var pluginType = NetworkLoggerPlugin(configuration: .init(formatter: .init(responseData: JSONResponseDataFormatter),
                                                                               logOptions: .verbose))
 
+func defaultAlamofireSession() -> Session {
+    let configuration = URLSessionConfiguration.default
+    configuration.headers = .default
+    configuration.timeoutIntervalForRequest = 20.0
+    configuration.timeoutIntervalForResource = 20.0
+
+    return Session(configuration: configuration, startRequestsImmediately: false)
+}
+
 protocol APIServiceProtocol {
     var DAPI: MoyaProvider<DAPI> { get }
 }
 
 final class APIService: APIServiceProtocol {
-    var DAPI = MoyaProvider<DAPI>(plugins: [pluginType])
+    var DAPI = MoyaProvider<DAPI>(session: defaultAlamofireSession(),
+                                  plugins: [pluginType])
 }
