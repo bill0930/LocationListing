@@ -18,9 +18,23 @@ class LocationListingTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
+    func testDAPIGetPersonList() throws {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+
+        let apiService = APIService()
+        apiService.DAPI.request(.personsList) { result in
+            switch result {
+            case .success(let response):
+                if let persons = try? response.map([Person].self) {
+                    XCTAssert(persons.count > 0, "Total: \(persons.count) persons in the list")
+                }
+
+            case .failure(let error):
+                fatalError(error.localizedDescription)
+            }
+        }
+
     }
 
     func testPerformanceExample() throws {
