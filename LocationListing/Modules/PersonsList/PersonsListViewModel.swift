@@ -10,9 +10,8 @@ import Foundation
 protocol PersonsListViewModelProtocol: AnyObject {
     var apiService: APIServiceProtocol? { get }
 
-    var persons: [Person] { get }
+    var persons: [Person] { get set }
 
-    var showAlertClosure: (() -> Void)? { get set }
     var updateLoadingStatus: (() -> Void)? { get set }
     var didFinishFetch: (() -> Void)? { get set }
 
@@ -35,7 +34,6 @@ final class PersonsListViewModel: PersonsListViewModelProtocol {
     }
 
     // closures
-    var showAlertClosure: (() -> Void)?
     var updateLoadingStatus: (() -> Void)?
     var didFinishFetch: (() -> Void)?
 
