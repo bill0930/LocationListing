@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,9 @@
 		E06EE97E26428BE70079D1DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E06EE97C26428BE70079D1DA /* LaunchScreen.storyboard */; };
 		E06EE98926428BE70079D1DA /* LocationListingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE98826428BE70079D1DA /* LocationListingTests.swift */; };
 		E06EE99426428BE70079D1DA /* LocationListingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE99326428BE70079D1DA /* LocationListingUITests.swift */; };
+		E06EE9A22642914A0079D1DA /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE9A12642914A0079D1DA /* TabBarViewController.swift */; };
+		E06EE9A42642921E0079D1DA /* LocationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE9A32642921E0079D1DA /* LocationListViewController.swift */; };
+		E06EE9AA264293000079D1DA /* MultiLocationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE9A9264293000079D1DA /* MultiLocationMapViewController.swift */; };
 		E4CECEE5A089010B6853AE90 /* Pods_LocationListing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D16AFE84E808DC604BDBB0E3 /* Pods_LocationListing.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +60,9 @@
 		E06EE98F26428BE70079D1DA /* LocationListingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocationListingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E06EE99326428BE70079D1DA /* LocationListingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListingUITests.swift; sourceTree = "<group>"; };
 		E06EE99526428BE70079D1DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E06EE9A12642914A0079D1DA /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		E06EE9A32642921E0079D1DA /* LocationListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListViewController.swift; sourceTree = "<group>"; };
+		E06EE9A9264293000079D1DA /* MultiLocationMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiLocationMapViewController.swift; sourceTree = "<group>"; };
 		E948A7613857BAACC1E067BE /* Pods-LocationListing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocationListing.release.xcconfig"; path = "Target Support Files/Pods-LocationListing/Pods-LocationListing.release.xcconfig"; sourceTree = "<group>"; };
 		F9F3E6DB8C0BBBFC39FD377E /* Pods-LocationListing-LocationListingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocationListing-LocationListingUITests.debug.xcconfig"; path = "Target Support Files/Pods-LocationListing-LocationListingUITests/Pods-LocationListing-LocationListingUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,7 +105,6 @@
 				53A414129C5C4A5866015998 /* Pods-LocationListingTests.debug.xcconfig */,
 				AAFDD1380773A9817740AC41 /* Pods-LocationListingTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -138,9 +143,11 @@
 		E06EE97026428BE60079D1DA /* LocationListing */ = {
 			isa = PBXGroup;
 			children = (
+				E06EE9A5264292220079D1DA /* Modules */,
 				E06EE97126428BE60079D1DA /* AppDelegate.swift */,
 				E06EE97326428BE60079D1DA /* SceneDelegate.swift */,
 				E06EE97526428BE60079D1DA /* ViewController.swift */,
+				E06EE9A12642914A0079D1DA /* TabBarViewController.swift */,
 				E06EE97A26428BE70079D1DA /* Assets.xcassets */,
 				E06EE97C26428BE70079D1DA /* LaunchScreen.storyboard */,
 				E06EE97F26428BE70079D1DA /* Info.plist */,
@@ -164,6 +171,39 @@
 				E06EE99526428BE70079D1DA /* Info.plist */,
 			);
 			path = LocationListingUITests;
+			sourceTree = "<group>";
+		};
+		E06EE9A5264292220079D1DA /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				E06EE9A6264292270079D1DA /* LocationList */,
+				E06EE9A7264292420079D1DA /* MultiLocationMap */,
+				E06EE9A8264292D60079D1DA /* SingleLocationMap */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		E06EE9A6264292270079D1DA /* LocationList */ = {
+			isa = PBXGroup;
+			children = (
+				E06EE9A32642921E0079D1DA /* LocationListViewController.swift */,
+			);
+			path = LocationList;
+			sourceTree = "<group>";
+		};
+		E06EE9A7264292420079D1DA /* MultiLocationMap */ = {
+			isa = PBXGroup;
+			children = (
+				E06EE9A9264293000079D1DA /* MultiLocationMapViewController.swift */,
+			);
+			path = MultiLocationMap;
+			sourceTree = "<group>";
+		};
+		E06EE9A8264292D60079D1DA /* SingleLocationMap */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SingleLocationMap;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -439,7 +479,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E06EE9AA264293000079D1DA /* MultiLocationMapViewController.swift in Sources */,
+				E06EE9A22642914A0079D1DA /* TabBarViewController.swift in Sources */,
 				E06EE97626428BE60079D1DA /* ViewController.swift in Sources */,
+				E06EE9A42642921E0079D1DA /* LocationListViewController.swift in Sources */,
 				E06EE97226428BE60079D1DA /* AppDelegate.swift in Sources */,
 				E06EE97426428BE60079D1DA /* SceneDelegate.swift in Sources */,
 			);
