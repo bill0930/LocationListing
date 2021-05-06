@@ -10,6 +10,8 @@ target 'LocationListing' do
   pod 'SwiftLint'
   pod 'SkeletonView', '=1.15.0'
   pod 'SDWebImage'
+  pod 'RealmSwift', '=10.7.4'
+
 
 
   # Pods for LocationListing
