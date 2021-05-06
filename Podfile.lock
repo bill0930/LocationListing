@@ -9,12 +9,18 @@ PODS:
     - Moya/Core (= 14.0.0)
   - Moya/Core (14.0.0):
     - Alamofire (~> 5.0)
+  - SDWebImage (5.11.1):
+    - SDWebImage/Core (= 5.11.1)
+  - SDWebImage/Core (5.11.1)
+  - SkeletonView (1.15.0)
   - SnapKit (5.0.1)
   - SwiftLint (0.43.1)
 
 DEPENDENCIES:
   - GoogleMaps (= 4.2.0)
   - Moya (~> 14.0)
+  - SDWebImage
+  - SkeletonView (= 1.15.0)
   - SnapKit (~> 5.0.0)
   - SwiftLint
 
@@ -23,6 +29,8 @@ SPEC REPOS:
     - Alamofire
     - GoogleMaps
     - Moya
+    - SDWebImage
+    - SkeletonView
     - SnapKit
     - SwiftLint
 
@@ -30,9 +38,11 @@ SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
   GoogleMaps: eb03e327edfd70b06de1e6e321653f73712df7ad
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
+  SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
+  SkeletonView: cac18a3ac4f893b09d99e65072d806ef08377aae
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
 
-PODFILE CHECKSUM: fa40ef6caf0769f1891f15b23d2895ab27cb4b0b
+PODFILE CHECKSUM: 53c2f8d4b767af2b22d83d6841d3df84407b80e6
 
 COCOAPODS: 1.10.1

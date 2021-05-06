@@ -8,6 +8,9 @@ target 'LocationListing' do
   pod 'Moya', '~> 14.0'
   pod 'GoogleMaps', '= 4.2.0'
   pod 'SwiftLint'
+  pod 'SkeletonView', '=1.15.0'
+  pod 'SDWebImage'
+
 
   # Pods for LocationListing
 

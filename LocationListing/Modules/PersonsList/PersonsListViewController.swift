@@ -8,15 +8,22 @@
 import UIKit
 import Moya
 import SnapKit
+import SkeletonView
 
 final class PersonsListViewController: UIViewController {
 
     lazy private var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.separatorStyle  = .none
-        tableView.indicatorStyle = .default
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.estimatedRowHeight = 76
+        tableView.rowHeight = 76
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = UIColor(named: "pink003")!
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+
         tableView.register(PersonsListTableViewCell.self, forCellReuseIdentifier: String(describing: PersonsListTableViewCell.self))
         return tableView
     }()
@@ -28,6 +35,7 @@ final class PersonsListViewController: UIViewController {
         addSubViews()
         makeConstraints()
         viewModel.getPersonList()
+
     }
 
     let viewModel: PersonsListViewModelProtocol
@@ -56,29 +64,55 @@ extension PersonsListViewController {
     }
 
     private func setCallbacksHandler() {
-        viewModel.updateLoadingStatus = { [weak self] in
+        viewModel.updateLoadingStatus = {  [weak self] isLoading in
+            if isLoading == true {
+                let gradient = SkeletonGradient(baseColor: UIColor(named: "pink004")!)
+                let animation = SkeletonAnimationBuilder().makeSlidingAnimation(withDirection: .leftRight)
+                self?.tableView.isSkeletonable = true
+                self?.tableView.showAnimatedGradientSkeleton(usingGradient: gradient, animation: animation)
+            }
 
+            if isLoading == false {
+                self?.tableView.hideSkeleton()
+            }
         }
 
         viewModel.didFinishFetch = { [weak self] in
             self?.tableView.reloadData()
-            print("didFinishFetch, billychan")
+            self?.tableView.refreshControl?.endRefreshing()
+
         }
+
+    }
+
+    @objc private func pullToRefresh() {
+        viewModel.getPersonList()
     }
 
 }
 
-extension PersonsListViewController: UITableViewDelegate, UITableViewDataSource {
+extension PersonsListViewController: SkeletonTableViewDataSource {
+
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return String(describing: PersonsListTableViewCell.self)
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.persons.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: PersonsListTableViewCell.self), for: indexPath) as? PersonsListTableViewCell {
-            cell.textLabel?.text = viewModel.persons[indexPath.row].name.first
+            let person = viewModel.persons[indexPath.row]
+            cell.setModel(with: PersonsListTableViewCellModel(person: person))
             return cell
         }
-        return UITableViewCell()
+
+        return PersonsListTableViewCell()
     }
+
+}
+
+extension PersonsListViewController: UITableViewDelegate {
 
 }

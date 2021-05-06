@@ -12,7 +12,7 @@ protocol PersonsListViewModelProtocol: AnyObject {
 
     var persons: [Person] { get set }
 
-    var updateLoadingStatus: (() -> Void)? { get set }
+    var updateLoadingStatus: ((Bool) -> Void)? { get set }
     var didFinishFetch: (() -> Void)? { get set }
 
     func getPersonList()
@@ -24,31 +24,33 @@ final class PersonsListViewModel: PersonsListViewModelProtocol {
     var persons: [Person] = [] {
         didSet {
             didFinishFetch?()
+            isLoading = false
         }
     }
 
     var isLoading: Bool = false {
         didSet {
-            updateLoadingStatus?()
+            updateLoadingStatus?(isLoading)
         }
     }
 
     // closures
-    var updateLoadingStatus: (() -> Void)?
+    var updateLoadingStatus: ((Bool) -> Void)?
     var didFinishFetch: (() -> Void)?
 
     func getPersonList() {
         isLoading = true
-        apiService?.DAPI.request(.personsList) { [weak self] result in
-            self?.isLoading = false
-            switch result {
-            case .success(let response):
-                if let persons = try? response.map([Person].self) {
-                    self?.persons = persons
-                }
+        DispatchQueue.main.async { [ weak self ] in
+            self?.apiService?.DAPI.request(.personsList) { [weak self] result in
+                switch result {
+                case .success(let response):
+                    if let persons = try? response.map([Person].self) {
+                        self?.persons = persons
+                    }
 
-            case .failure(let error):
-                fatalError(error.localizedDescription)
+                case .failure(let error):
+                    self?.persons = self?.persons ?? []
+                }
             }
         }
     }
