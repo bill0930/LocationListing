@@ -5,6 +5,7 @@ PODS:
   - GoogleMaps/Base (4.2.0)
   - GoogleMaps/Maps (4.2.0):
     - GoogleMaps/Base
+  - Loaf (0.7.0)
   - Moya (14.0.0):
     - Moya/Core (= 14.0.0)
   - Moya/Core (14.0.0):
@@ -24,6 +25,7 @@ PODS:
 
 DEPENDENCIES:
   - GoogleMaps (= 4.2.0)
+  - Loaf (~> 0.7.0)
   - Moya (~> 14.0)
   - ObjectMapper (~> 4.2.0)
   - RealmSwift (= 10.7.4)
@@ -36,6 +38,7 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - GoogleMaps
+    - Loaf
     - Moya
     - ObjectMapper
     - Realm
@@ -48,6 +51,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
   GoogleMaps: eb03e327edfd70b06de1e6e321653f73712df7ad
+  Loaf: d69937cd00649f3fa260beb8b7aef0a1feb861ef
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
   Realm: f08ce1a85649a41303ecfe1cbd914c62e9e6d710
@@ -57,6 +61,6 @@ SPEC CHECKSUMS:
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
 
-PODFILE CHECKSUM: c836fe5048961b1f6cb24d0d40261c5bde5d312e
+PODFILE CHECKSUM: b0171971601d353a02be7d7fe1a6bdf738d97dce
 
 COCOAPODS: 1.10.1

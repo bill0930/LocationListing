@@ -12,6 +12,7 @@ target 'LocationListing' do
   pod 'SDWebImage'
   pod 'RealmSwift', '=10.7.4'
   pod 'ObjectMapper', '~> 4.2.0'
+  pod 'Loaf', '~> 0.7.0'
 
 
 
