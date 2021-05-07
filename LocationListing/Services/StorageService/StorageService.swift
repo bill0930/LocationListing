@@ -7,10 +7,15 @@
 
 import Foundation
 
+enum DataSource {
+    case cache
+    case remote
+}
+
 protocol StorageServiceProtocol: AnyObject {
     var realmService: RealmService { get set }
     var apiService: APIServiceProtocol { get set }
-    func retrievePersonlist(completion: (([Person]) -> Void)?)
+    func retrievePersonlistFrom(_ dataSource: DataSource, completion: (([Person], _ isFetchFromCache: Bool) -> Void)?)
 }
 
 class StorageService: StorageServiceProtocol {
@@ -18,23 +23,25 @@ class StorageService: StorageServiceProtocol {
     internal var realmService: RealmService = RealmService.shared
     internal var apiService: APIServiceProtocol = APIService()
 
-    func retrievePersonlist(completion: (([Person]) -> Void)?) {
-        apiService.dapiService.getPersonList(completion: { [weak self] persons in
-            guard let strongSelf = self else { return }
-            var result: [Person] = []
-            if !persons.isEmpty {
-                try? strongSelf.realmService.realm.write {
-                    strongSelf.realmService.realm.add(persons, update: .modified)
+    func retrievePersonlistFrom(_ dataSource: DataSource, completion: (([Person], _ isFetchFromCache: Bool) -> Void)?) {
+        switch dataSource {
+        case .cache:
+            let personsFromRealm = Array(realmService.realm.objects(Person.self))
+            completion?(personsFromRealm, true)
+            return
+        case .remote:
+            apiService.dapiService.getPersonList(completion: { [weak self] persons in
+                guard let strongSelf = self else { return }
+                if !persons.isEmpty {
+                    try? strongSelf.realmService.realm.write {
+                        strongSelf.realmService.realm.add(persons, update: .modified)
+                    }
+                    completion?(persons, false)
+                } else {
+                    strongSelf.retrievePersonlistFrom(.cache, completion: completion)
                 }
-                result = persons
-            } else {
-                let personsFromRealm = Array(strongSelf.realmService.realm.objects(Person.self))
-                if !personsFromRealm.isEmpty {
-                    result = personsFromRealm
-                }
-            }
-            completion?(result)
-        })
+            })
+        }
     }
 
 }

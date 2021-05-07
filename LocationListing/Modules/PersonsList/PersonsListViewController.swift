@@ -35,7 +35,6 @@ final class PersonsListViewController: UIViewController {
         addSubViews()
         makeConstraints()
         viewModel.retrievePersonList(completion: nil)
-
     }
 
     let viewModel: PersonsListViewModelProtocol
@@ -65,22 +64,28 @@ extension PersonsListViewController {
 
     private func setCallbacksHandler() {
         viewModel.updateLoadingStatus = {  [weak self] isLoading in
-            if isLoading == true {
-                let gradient = SkeletonGradient(baseColor: UIColor(named: "pink004")!)
-                let animation = SkeletonAnimationBuilder().makeSlidingAnimation(withDirection: .leftRight)
-                self?.tableView.isSkeletonable = true
-                self?.tableView.showAnimatedGradientSkeleton(usingGradient: gradient, animation: animation)
-            }
+            DispatchQueue.main.async {
+                if isLoading == true {
+                    let gradient = SkeletonGradient(baseColor: UIColor(named: "pink004")!)
+                    let animation = SkeletonAnimationBuilder().makeSlidingAnimation(withDirection: .leftRight)
+                    self?.tableView.isSkeletonable = true
+                    self?.tableView.showAnimatedGradientSkeleton(usingGradient: gradient, animation: animation)
+                }
 
-            if isLoading == false {
-                self?.tableView.hideSkeleton()
+                if isLoading == false {
+                    self?.tableView.hideSkeleton()
+                }
             }
         }
 
         viewModel.didFinishFetch = { [weak self] in
             self?.tableView.reloadData()
             self?.tableView.refreshControl?.endRefreshing()
+        }
 
+        viewModel.didFetchFromCache = { [weak self] in
+            guard let strongSelf = self else { return }
+            Toast.showTheListIsFromCache(sender: strongSelf)
         }
 
     }

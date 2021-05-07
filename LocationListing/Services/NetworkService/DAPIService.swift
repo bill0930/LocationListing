@@ -22,7 +22,7 @@ final class DAPIService: DAPIServiceProtocol {
                                   plugins: [MoyaConfig.pluginType])
 
     func getPersonList(completion: (([Person]) -> Void)?) {
-        provider.request(.personsList) { [weak self] result in
+        provider.request(.personsList) { result in
             switch result {
             case .success(let response):
                 if let json = try? response.mapJSON() {

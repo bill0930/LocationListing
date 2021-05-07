@@ -14,6 +14,7 @@
 		E054269926450673008DAACE /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E054269826450673008DAACE /* APIService.swift */; };
 		E054269B264506FF008DAACE /* DAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E054269A264506FF008DAACE /* DAPIService.swift */; };
 		E05426A026453B61008DAACE /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E054269F26453B61008DAACE /* StorageService.swift */; };
+		E05426A3264568D8008DAACE /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05426A2264568D8008DAACE /* Toast.swift */; };
 		E06EE97226428BE60079D1DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE97126428BE60079D1DA /* AppDelegate.swift */; };
 		E06EE97426428BE60079D1DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE97326428BE60079D1DA /* SceneDelegate.swift */; };
 		E06EE97B26428BE70079D1DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E06EE97A26428BE70079D1DA /* Assets.xcassets */; };
@@ -66,6 +67,7 @@
 		E054269826450673008DAACE /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		E054269A264506FF008DAACE /* DAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAPIService.swift; sourceTree = "<group>"; };
 		E054269F26453B61008DAACE /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		E05426A2264568D8008DAACE /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		E06EE96E26428BE60079D1DA /* LocationListing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocationListing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E06EE97126428BE60079D1DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E06EE97326428BE60079D1DA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -188,6 +190,14 @@
 			path = StorageService;
 			sourceTree = "<group>";
 		};
+		E05426A1264568A9008DAACE /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				E05426A2264568D8008DAACE /* Toast.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		E06EE96526428BE60079D1DA = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +223,7 @@
 		E06EE97026428BE60079D1DA /* LocationListing */ = {
 			isa = PBXGroup;
 			children = (
+				E05426A1264568A9008DAACE /* UI */,
 				E05426912644E9F1008DAACE /* Helpers */,
 				E06EE9A5264292220079D1DA /* Modules */,
 				E06EE97126428BE60079D1DA /* AppDelegate.swift */,
@@ -638,6 +649,7 @@
 				E06EE97226428BE60079D1DA /* AppDelegate.swift in Sources */,
 				E06EE9B72642A6020079D1DA /* Person.swift in Sources */,
 				E06EE9C02642AA200079D1DA /* MockData.swift in Sources */,
+				E05426A3264568D8008DAACE /* Toast.swift in Sources */,
 				E06EE97426428BE60079D1DA /* SceneDelegate.swift in Sources */,
 				E05426972644F8F9008DAACE /* RealmService.swift in Sources */,
 			);
