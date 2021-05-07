@@ -48,6 +48,16 @@
                ReferencedContainer = "container:LocationListing.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E054268426444FEA008DAACE"
+               BuildableName = "APITest.xctest"
+               BlueprintName = "APITest"
+               ReferencedContainer = "container:LocationListing.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6D4E8B404CC4EC16F427F2A2 /* Pods_LocationListingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 626B75A4A3D7CB7F0F555DC2 /* Pods_LocationListingTests.framework */; };
 		D76818DFC426F8A6D8282F4A /* Pods_LocationListing_LocationListingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868CD9FAF54319F06ED2B08B /* Pods_LocationListing_LocationListingUITests.framework */; };
+		E05426932644EA09008DAACE /* ObjectMapper+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05426922644EA09008DAACE /* ObjectMapper+Realm.swift */; };
 		E06EE97226428BE60079D1DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE97126428BE60079D1DA /* AppDelegate.swift */; };
 		E06EE97426428BE60079D1DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE97326428BE60079D1DA /* SceneDelegate.swift */; };
 		E06EE97B26428BE70079D1DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E06EE97A26428BE70079D1DA /* Assets.xcassets */; };
@@ -56,6 +57,7 @@
 		AAFDD1380773A9817740AC41 /* Pods-LocationListingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocationListingTests.release.xcconfig"; path = "Target Support Files/Pods-LocationListingTests/Pods-LocationListingTests.release.xcconfig"; sourceTree = "<group>"; };
 		D16AFE84E808DC604BDBB0E3 /* Pods_LocationListing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocationListing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF57E5E83C131BA9F33D1490 /* Pods-LocationListing-LocationListingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocationListing-LocationListingUITests.release.xcconfig"; path = "Target Support Files/Pods-LocationListing-LocationListingUITests/Pods-LocationListing-LocationListingUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E05426922644EA09008DAACE /* ObjectMapper+Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObjectMapper+Realm.swift"; sourceTree = "<group>"; };
 		E06EE96E26428BE60079D1DA /* LocationListing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocationListing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E06EE97126428BE60079D1DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E06EE97326428BE60079D1DA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +138,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E05426912644E9F1008DAACE /* Helps */ = {
+			isa = PBXGroup;
+			children = (
+				E05426922644EA09008DAACE /* ObjectMapper+Realm.swift */,
+			);
+			path = Helps;
+			sourceTree = "<group>";
+		};
 		E06EE96526428BE60079D1DA = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +171,7 @@
 		E06EE97026428BE60079D1DA /* LocationListing */ = {
 			isa = PBXGroup;
 			children = (
+				E05426912644E9F1008DAACE /* Helps */,
 				E06EE9A5264292220079D1DA /* Modules */,
 				E06EE97126428BE60079D1DA /* AppDelegate.swift */,
 				E06EE97326428BE60079D1DA /* SceneDelegate.swift */,
@@ -584,6 +595,7 @@
 				E06EE9BB2642A6760079D1DA /* DAPI.swift in Sources */,
 				E06EE9B32642A4D10079D1DA /* PersonsListViewModel.swift in Sources */,
 				E06EE9A42642921E0079D1DA /* PersonsListViewController.swift in Sources */,
+				E05426932644EA09008DAACE /* ObjectMapper+Realm.swift in Sources */,
 				E06EE97226428BE60079D1DA /* AppDelegate.swift in Sources */,
 				E06EE9B72642A6020079D1DA /* Person.swift in Sources */,
 				E06EE9C02642AA200079D1DA /* MockData.swift in Sources */,
@@ -794,6 +806,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = LocationListingTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
@@ -816,6 +829,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = LocationListingTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
@@ -837,7 +851,10 @@
 			baseConfigurationReference = F9F3E6DB8C0BBBFC39FD377E /* Pods-LocationListing-LocationListingUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = LocationListingUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -846,6 +863,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.billychan.LocationListingUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = LocationListing;
@@ -857,7 +876,10 @@
 			baseConfigurationReference = DF57E5E83C131BA9F33D1490 /* Pods-LocationListing-LocationListingUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = LocationListingUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -866,6 +888,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.billychan.LocationListingUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = LocationListing;
