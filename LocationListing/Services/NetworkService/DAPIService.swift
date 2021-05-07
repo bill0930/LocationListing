@@ -22,22 +22,25 @@ final class DAPIService: DAPIServiceProtocol {
                                   plugins: [MoyaConfig.pluginType])
 
     func getPersonList(completion: (([Person]) -> Void)?) {
-        provider.request(.personsList) { result in
-            switch result {
-            case .success(let response):
-                if let json = try? response.mapJSON() {
-                    if let persons = Mapper<Person>().mapArray(JSONObject: json) {
-                        completion?(persons)
+        DispatchQueue.global(qos: .background).async {
+            self.provider.request(.personsList) { result in
+                switch result {
+                case .success(let response):
+                    if let json = try? response.mapJSON() {
+                        if let persons = Mapper<Person>().mapArray(JSONObject: json) {
+                            completion?(persons)
+                        } else {
+                            completion?([])
+                        }
                     } else {
                         completion?([])
                     }
-                } else {
+                case .failure(let error):
                     completion?([])
+                    print(error.localizedDescription)
                 }
-            case .failure(let error):
-                completion?([])
-                print(error.localizedDescription)
             }
         }
+
     }
 }

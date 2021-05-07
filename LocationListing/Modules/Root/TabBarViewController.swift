@@ -14,28 +14,17 @@ final class TabBarController: UITabBarController {
         let storageService = StorageService()
         let viewModel = PersonsListViewModel(storageService: storageService)
         let viewController = PersonsListViewController(viewModel: viewModel)
-        viewController.title = "List View"
+
+        let title = "List View"
+        let image = UIImage(systemName: "info.circle")
+        let selectedImage = UIImage(systemName: "info.circle.fill")
+        let tabBarItem = UITabBarItem(title: title, image: image, selectedImage: selectedImage)
+        tabBar.tintColor = UIColor(named: "pink001")
+        viewController.tabBarItem = tabBarItem
         return viewController
     }()
 
-    lazy private var firstVC: UINavigationController = {
-        let navigationController = UINavigationController(rootViewController: personListVC)
-        navigationController.navigationBar.titleTextAttributes = [
-            .foregroundColor: UIColor(named: "pink001")!,
-            .font: UIFont(name: "Avenir Black", size: 24.0)!
-        ]
-        navigationController.navigationBar.barTintColor = UIColor(named: "pink005")
-        navigationController.navigationBar.tintColor = UIColor(named: "pink005")
-
-        let image = UIImage(systemName: "info.circle")
-        let selectedImage = UIImage(systemName: "info.circle.fill")
-        let tabBarItem = UITabBarItem(title: personListVC.title, image: image, selectedImage: selectedImage)
-        tabBar.tintColor = UIColor(named: "pink001")
-        navigationController.tabBarItem = tabBarItem
-        return navigationController
-    }()
-
-    lazy private var secondVC: MultiLocationMapViewController = {
+    lazy private var multiLocationVC: MultiLocationMapViewController = {
         let viewController = MultiLocationMapViewController()
         let title = "Map View"
         let image = UIImage(systemName: "map")
@@ -43,6 +32,8 @@ final class TabBarController: UITabBarController {
         let tabBarItem = UITabBarItem(title: title, image: image, selectedImage: selectedImage)
 
         tabBarItem.title = title
+        viewController.title = title
+        viewController.navigationItem.title = title
         viewController.tabBarItem = tabBarItem
         return viewController
     }()
@@ -56,7 +47,6 @@ final class TabBarController: UITabBarController {
             .foregroundColor: UIColor(named: "pink001")!,
             .font: UIFont(name: "Avenir Book", size: 14.0)!
         ], for: .normal)
-
     }
 
     required init?(coder: NSCoder) {
@@ -64,7 +54,12 @@ final class TabBarController: UITabBarController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        self.viewControllers = [firstVC, secondVC]
+        self.viewControllers = [personListVC, multiLocationVC]
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 
     override func didReceiveMemoryWarning() {

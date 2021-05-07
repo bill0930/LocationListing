@@ -33,21 +33,28 @@ final class PersonsListViewModel: PersonsListViewModelProtocol {
 
     var persons: [Person] = [] {
         didSet {
-            didFinishFetch?()
-            isLoading = false
+            DispatchQueue.main.async {
+                self.didFinishFetch?()
+                self.isLoading = false
+            }
+
         }
     }
 
     var isLoading: Bool = false {
         didSet {
-            updateLoadingStatus?(isLoading)
+            DispatchQueue.main.async {
+                self.updateLoadingStatus?(self.isLoading)
+            }
         }
     }
 
     var isFetchFromCache: Bool = false {
         willSet(value) {
-            if value == true {
-                didFetchFromCache?()
+            DispatchQueue.main.async {
+                if value == true {
+                    self.didFetchFromCache?()
+                }
             }
         }
     }

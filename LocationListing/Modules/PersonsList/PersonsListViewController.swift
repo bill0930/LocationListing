@@ -19,7 +19,7 @@ final class PersonsListViewController: UIViewController {
         tableView.estimatedRowHeight = 76
         tableView.rowHeight = 76
         tableView.separatorStyle = .none
-        tableView.backgroundColor = UIColor(named: "pink003")!
+        tableView.backgroundColor = .clear
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
         tableView.refreshControl = refreshControl
@@ -52,29 +52,30 @@ final class PersonsListViewController: UIViewController {
 
 extension PersonsListViewController {
     private func addSubViews() {
+        view.backgroundColor = UIColor(named: "pink003")!
         view.addSubview(tableView)
     }
 
     private func makeConstraints() {
         tableView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            $0.bottom.left.right.equalToSuperview()
+            $0.bottom.equalToSuperview()
+            $0.left.equalTo(16)
+            $0.right.equalTo(-16)
         }
     }
 
     private func setCallbacksHandler() {
         viewModel.updateLoadingStatus = {  [weak self] isLoading in
-            DispatchQueue.main.async {
-                if isLoading == true {
-                    let gradient = SkeletonGradient(baseColor: UIColor(named: "pink004")!)
-                    let animation = SkeletonAnimationBuilder().makeSlidingAnimation(withDirection: .leftRight)
-                    self?.tableView.isSkeletonable = true
-                    self?.tableView.showAnimatedGradientSkeleton(usingGradient: gradient, animation: animation)
-                }
+            if isLoading == true {
+                let gradient = SkeletonGradient(baseColor: UIColor(named: "pink004")!)
+                let animation = SkeletonAnimationBuilder().makeSlidingAnimation(withDirection: .leftRight)
+                self?.tableView.isSkeletonable = true
+                self?.tableView.showAnimatedGradientSkeleton(usingGradient: gradient, animation: animation)
+            }
 
-                if isLoading == false {
-                    self?.tableView.hideSkeleton()
-                }
+            if isLoading == false {
+                self?.tableView.hideSkeleton()
             }
         }
 
@@ -119,5 +120,9 @@ extension PersonsListViewController: SkeletonTableViewDataSource {
 }
 
 extension PersonsListViewController: UITableViewDelegate {
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let person = viewModel.persons[indexPath.row]
+        let vc = SingleLocationMapViewController(person: person)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
