@@ -106,8 +106,8 @@ extension PersonsListTableViewCell {
     }
 
     func setModel(with cellModel: PersonsListTableViewCellModelProtocol) {
-        if let firstName = cellModel.person.name.first,
-           let lastName = cellModel.person.name.last {
+        if let firstName = cellModel.person.name?.first,
+           let lastName = cellModel.person.name?.last {
             nameLabel.text = "\(firstName) \(lastName)"
         }
 

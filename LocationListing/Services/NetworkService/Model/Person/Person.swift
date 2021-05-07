@@ -6,32 +6,26 @@
 //
 
 import Foundation
+import ObjectMapper
+import RealmSwift
 
-struct Person {
-    let id: String
-    let picture: String
-    let name: PersonName
-    let email: String
-    let location: LatLon
-}
+class Person: Object, Mappable {
 
-extension Person: Decodable {
-    enum PersonCodingKeys: String, CodingKey {
-        case id = "_id"
-        case picture
-        case name
-        case email
-        case location
+    @objc dynamic var id: String = ""
+    @objc dynamic var picture: String = ""
+    @objc dynamic var name: PersonName?
+    @objc dynamic var email: String = ""
+    @objc dynamic var location: LatLon!
+
+    required convenience init?(map: Map) {
+        self.init()
     }
 
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: PersonCodingKeys.self)
-
-        id = try container.decode(String.self, forKey: .id)
-        picture = try container.decode(String.self, forKey: .picture)
-        name = try container.decode(PersonName.self, forKey: .name)
-        email = try container.decode(String.self, forKey: .email)
-        location = try container.decode(LatLon.self, forKey: .location)
-
+    func mapping(map: Map) {
+        id          <-  map["_id"]
+        picture     <-  map["picture"]
+        name        <-  map["name"]
+        email       <-  map["email"]
+        location    <-  map["location"]
     }
 }

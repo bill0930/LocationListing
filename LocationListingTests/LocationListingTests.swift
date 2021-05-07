@@ -7,41 +7,41 @@
 
 import XCTest
 @testable import LocationListing
+import ObjectMapper
 
 class LocationListingTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    var sut: APIServiceProtocol!
+
+    override func setUp() {
+        super.setUp()
+        sut = APIService()
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    override func tearDown() {
+        sut = nil
+        super.tearDown()
     }
 
-    func testDAPIGetPersonList() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-
-        let apiService = APIService()
-        apiService.DAPI.request(.personsList) { result in
+    func testDAPIGetPersonListAndMapping() {
+        let promise = expectation(description: "DPI.getPersonList.mapping")
+        sut.DAPI.request(DAPI.personsList) { result in
             switch result {
             case .success(let response):
-                if let persons = try? response.map([Person].self) {
-                    XCTAssert(persons.count > 0, "Total: \(persons.count) persons in the list")
+                if let json = try? response.mapJSON() {
+                    if let persons = Mapper<Person>().mapArray(JSONObject: json) {
+                        XCTAssertTrue(persons.count > 0, "persons.count == 0")
+                        promise.fulfill()
+                    } else {
+                        XCTFail("🔴Mapper<Person>().mapArray(JSONObject: json) FAIL")
+                    }
+                } else {
+                    XCTFail("🔴response.mapJSON() FAIL")
                 }
-
             case .failure(let error):
-                fatalError(error.localizedDescription)
+                XCTFail("🔴error with \(error)")
             }
         }
-
+        wait(for: [promise], timeout: 10)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }

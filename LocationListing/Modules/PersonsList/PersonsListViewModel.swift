@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import ObjectMapper
 
 protocol PersonsListViewModelProtocol: AnyObject {
     var apiService: APIServiceProtocol? { get }
@@ -14,8 +15,7 @@ protocol PersonsListViewModelProtocol: AnyObject {
 
     var updateLoadingStatus: ((Bool) -> Void)? { get set }
     var didFinishFetch: (() -> Void)? { get set }
-
-    func getPersonList()
+    func getPersonList(completion: (([Person]) -> Void)?)
 }
 
 final class PersonsListViewModel: PersonsListViewModelProtocol {
@@ -38,18 +38,26 @@ final class PersonsListViewModel: PersonsListViewModelProtocol {
     var updateLoadingStatus: ((Bool) -> Void)?
     var didFinishFetch: (() -> Void)?
 
-    func getPersonList() {
+    func getPersonList(completion: ( (_ persons: [Person]) -> Void)?) {
         isLoading = true
         DispatchQueue.main.async { [ weak self ] in
             self?.apiService?.DAPI.request(.personsList) { [weak self] result in
+                guard let strongSelf = self else { return }
                 switch result {
                 case .success(let response):
-                    if let persons = try? response.map([Person].self) {
-                        self?.persons = persons
+                    if let json = try? response.mapJSON() {
+                        if let persons = Mapper<Person>().mapArray(JSONObject: json) {
+                            strongSelf.persons = persons
+                            completion?(persons)
+                        }
+                    } else {
+                        strongSelf.persons = []
+                        completion?([])
                     }
 
                 case .failure(let error):
-                    self?.persons = self?.persons ?? []
+                    print("DPI.get.personsList failure with \(error.localizedDescription)")
+                    completion?(strongSelf.persons)
                 }
             }
         }

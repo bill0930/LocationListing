@@ -6,22 +6,21 @@
 //
 
 import Foundation
+import ObjectMapper
+import RealmSwift
 
-struct LatLon {
-    let latitude: Float?
-    let longitude: Float?
-}
+class LatLon: Object, Mappable {
 
-extension LatLon: Decodable {
-    enum LatLonCodingKeys: String, CodingKey {
-        case latitude
-        case longitude
+    @objc dynamic var latitude = 0.0
+    var longitude = RealmOptional<Double>()
+
+    required convenience init?(map: Map) {
+        self.init()
     }
 
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: LatLonCodingKeys.self)
-
-        latitude = try container.decode(Float?.self, forKey: .latitude)
-        longitude = try container.decode(Float?.self, forKey: .longitude)
+    func mapping(map: Map) {
+        latitude <- map["latitude"]
+        longitude <- map["longitude"]
     }
+
 }

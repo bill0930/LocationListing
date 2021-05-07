@@ -37,4 +37,5 @@ protocol APIServiceProtocol {
 final class APIService: APIServiceProtocol {
     var DAPI = MoyaProvider<DAPI>(session: defaultAlamofireSession(),
                                   plugins: [pluginType])
+
 }

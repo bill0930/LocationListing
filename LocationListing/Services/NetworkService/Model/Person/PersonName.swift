@@ -6,22 +6,21 @@
 //
 
 import Foundation
+import ObjectMapper
+import RealmSwift
 
-struct PersonName {
-    let first: String?
-    let last: String?
-}
+class PersonName: Object, Mappable {
 
-extension PersonName: Decodable {
-    enum PersonNameCodingKeys: String, CodingKey {
-        case first
-        case last
+    @objc dynamic var first: String = ""
+    @objc dynamic var last: String = ""
+
+    required convenience init?(map: Map) {
+        self.init()
     }
 
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: PersonNameCodingKeys.self)
-
-        first = try container.decode(String?.self, forKey: .first)
-        last = try container.decode(String?.self, forKey: .last)
+    func mapping(map: Map) {
+        first <- map["first"]
+        last <- map["last"]
     }
+
 }
