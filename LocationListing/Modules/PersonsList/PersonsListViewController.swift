@@ -58,7 +58,7 @@ extension PersonsListViewController {
 
     private func makeConstraints() {
         tableView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            $0.top.equalTo(44)
             $0.bottom.equalToSuperview()
             $0.left.equalTo(16)
             $0.right.equalTo(-16)
