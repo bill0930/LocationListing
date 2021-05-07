@@ -9,15 +9,15 @@ import UIKit
 
 class SingleLocationMapViewController: UIViewController {
 
-    let person: Person
+    let viewModel: SingleLocationMapViewModelProtocol
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
 
-    init(person: Person) {
-        self.person = person
+    init(viewModel: SingleLocationMapViewModelProtocol) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
 

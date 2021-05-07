@@ -122,7 +122,8 @@ extension PersonsListViewController: SkeletonTableViewDataSource {
 extension PersonsListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let person = viewModel.persons[indexPath.row]
-        let vc = SingleLocationMapViewController(person: person)
+        let viewModel = SingleLocationMapViewModel(person: person)
+        let vc = SingleLocationMapViewController(viewModel: viewModel)
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
