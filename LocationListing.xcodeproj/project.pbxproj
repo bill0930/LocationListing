@@ -35,6 +35,8 @@
 		E06EE9C52642B35E0079D1DA /* PersonName.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE9C42642B35E0079D1DA /* PersonName.swift */; };
 		E06EE9C82642B5030079D1DA /* LatLon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE9C72642B5030079D1DA /* LatLon.swift */; };
 		E0A99266264597D000F58DBA /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A99265264597D000F58DBA /* Config.swift */; };
+		E0A992682645AD1500F58DBA /* MultiLocationMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A992672645AD1500F58DBA /* MultiLocationMapViewModel.swift */; };
+		E0A9926A2645C07C00F58DBA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A992692645C07C00F58DBA /* Constants.swift */; };
 		E0C67F142645814C00258E1D /* SingleLocationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C67F132645814C00258E1D /* SingleLocationMapViewController.swift */; };
 		E0C67F19264584D000258E1D /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C67F18264584D000258E1D /* CustomNavigationController.swift */; };
 		E0C67F1B26458A2800258E1D /* SingleLocationMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C67F1A26458A2800258E1D /* SingleLocationMapViewModel.swift */; };
@@ -98,6 +100,8 @@
 		E06EE9C42642B35E0079D1DA /* PersonName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonName.swift; sourceTree = "<group>"; };
 		E06EE9C72642B5030079D1DA /* LatLon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatLon.swift; sourceTree = "<group>"; };
 		E0A99265264597D000F58DBA /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		E0A992672645AD1500F58DBA /* MultiLocationMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiLocationMapViewModel.swift; sourceTree = "<group>"; };
+		E0A992692645C07C00F58DBA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E0C67F132645814C00258E1D /* SingleLocationMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLocationMapViewController.swift; sourceTree = "<group>"; };
 		E0C67F18264584D000258E1D /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		E0C67F1A26458A2800258E1D /* SingleLocationMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLocationMapViewModel.swift; sourceTree = "<group>"; };
@@ -289,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				E06EE9A9264293000079D1DA /* MultiLocationMapViewController.swift */,
+				E0A992672645AD1500F58DBA /* MultiLocationMapViewModel.swift */,
 			);
 			path = MultiLocationMap;
 			sourceTree = "<group>";
@@ -354,6 +359,7 @@
 			isa = PBXGroup;
 			children = (
 				E0A99265264597D000F58DBA /* Config.swift */,
+				E0A992692645C07C00F58DBA /* Constants.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -667,7 +673,9 @@
 				E054269B264506FF008DAACE /* DAPIService.swift in Sources */,
 				E0A99266264597D000F58DBA /* Config.swift in Sources */,
 				E06EE9C52642B35E0079D1DA /* PersonName.swift in Sources */,
+				E0A9926A2645C07C00F58DBA /* Constants.swift in Sources */,
 				E05426A026453B61008DAACE /* StorageService.swift in Sources */,
+				E0A992682645AD1500F58DBA /* MultiLocationMapViewModel.swift in Sources */,
 				E06EE9AA264293000079D1DA /* MultiLocationMapViewController.swift in Sources */,
 				E06EE9B12642A3F20079D1DA /* PersonsListTableViewCell.swift in Sources */,
 				E06EE9BE2642A9E30079D1DA /* PersonListSample.swift in Sources */,

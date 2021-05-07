@@ -8,21 +8,15 @@
 import UIKit
 import GoogleMaps
 
-struct Constants {
-    static let defaultLatitude: Double = 22.302711
-    static let defaultLongitude: Double = 114.177216
-    static let defaultZoomLevel: Float = 12.0
-}
-
 class SingleLocationMapViewController: UIViewController {
 
-    let viewModel: SingleLocationMapViewModelProtocol
+    var viewModel: SingleLocationMapViewModelProtocol
 
     lazy private var mapView: GMSMapView = {
         let mapView = GMSMapView()
-        mapView.camera = GMSCameraPosition(latitude: Constants.defaultLatitude,
-                                           longitude: Constants.defaultLongitude,
-                                           zoom: Constants.defaultZoomLevel)
+        mapView.camera = GMSCameraPosition(latitude: GoogleMapConstants.defaultLatitude,
+                                           longitude: GoogleMapConstants.defaultLongitude,
+                                           zoom: GoogleMapConstants.defaultZoomLevel)
         return mapView
     }()
 
@@ -120,31 +114,13 @@ extension SingleLocationMapViewController {
     }
 
     func updateViews() {
-        if let firstName = viewModel.person.name?.first, let lastName = viewModel.person.name?.last {
-            nameLabel.text = "\(firstName) \(lastName)"
-        }
-
+        let person = viewModel.person
+        nameLabel.text = "\(person.name.first!)  \(person.name.last!)"
         emailLabel.text = viewModel.person.email
 
         let urlString = viewModel.person.picture
         let url = URL(string: urlString)
         avatarView.sd_setImage(with: url)
-
-        let marker = GMSMarker()
-        if let lat = viewModel.person.location.latitude.value, let lon = viewModel.person.location.longitude.value {
-            mapView.camera = GMSCameraPosition(latitude: lat, longitude: lon, zoom: Constants.defaultZoomLevel)
-            marker.position = CLLocationCoordinate2D(latitude: lat, longitude: lon)
-            marker.title = nameLabel.text
-            marker.snippet = viewModel.person.email
-        } else {
-            marker.position = CLLocationCoordinate2D(latitude: Constants.defaultLatitude,
-                                                     longitude: Constants.defaultLongitude)
-            marker.title = nameLabel.text! + "\n (Estimated Location)"
-            marker.snippet = viewModel.person.email
-            marker.icon = GMSMarker.markerImage(with: UIColor(named: "pink005"))
-        }
-
-        marker.map = mapView
-
+        viewModel.setMarker(for: person, to: mapView)
     }
 }

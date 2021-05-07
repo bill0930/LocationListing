@@ -11,8 +11,7 @@ import Moya
 final class TabBarController: UITabBarController {
 
     lazy private var personListVC: PersonsListViewController = {
-        let storageService = StorageService()
-        let viewModel = PersonsListViewModel(storageService: storageService)
+        let viewModel = PersonsListViewModel()
         let viewController = PersonsListViewController(viewModel: viewModel)
 
         let title = "List View"
@@ -25,7 +24,8 @@ final class TabBarController: UITabBarController {
     }()
 
     lazy private var multiLocationVC: MultiLocationMapViewController = {
-        let viewController = MultiLocationMapViewController()
+        let viewModel = MultiLocationMapViewModel()
+        let viewController = MultiLocationMapViewController(viewModel: viewModel)
         let title = "Map View"
         let image = UIImage(systemName: "map")
         let selectedImage = UIImage(systemName: "map.fill")

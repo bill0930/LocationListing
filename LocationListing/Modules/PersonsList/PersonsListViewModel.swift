@@ -25,11 +25,7 @@ protocol PersonsListViewModelProtocol: AnyObject {
 
 final class PersonsListViewModel: PersonsListViewModelProtocol {
 
-    var storageService: StorageServiceProtocol
-
-    init(storageService: StorageServiceProtocol) {
-        self.storageService = storageService
-    }
+    var storageService: StorageServiceProtocol = StorageService()
 
     var persons: [Person] = [] {
         didSet {
