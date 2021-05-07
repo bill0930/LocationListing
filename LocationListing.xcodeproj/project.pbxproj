@@ -10,6 +10,9 @@
 		6D4E8B404CC4EC16F427F2A2 /* Pods_LocationListingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 626B75A4A3D7CB7F0F555DC2 /* Pods_LocationListingTests.framework */; };
 		D76818DFC426F8A6D8282F4A /* Pods_LocationListing_LocationListingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868CD9FAF54319F06ED2B08B /* Pods_LocationListing_LocationListingUITests.framework */; };
 		E05426932644EA09008DAACE /* ObjectMapper+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05426922644EA09008DAACE /* ObjectMapper+Realm.swift */; };
+		E05426972644F8F9008DAACE /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05426962644F8F9008DAACE /* RealmService.swift */; };
+		E054269926450673008DAACE /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E054269826450673008DAACE /* APIService.swift */; };
+		E054269B264506FF008DAACE /* DAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E054269A264506FF008DAACE /* DAPIService.swift */; };
 		E06EE97226428BE60079D1DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE97126428BE60079D1DA /* AppDelegate.swift */; };
 		E06EE97426428BE60079D1DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE97326428BE60079D1DA /* SceneDelegate.swift */; };
 		E06EE97B26428BE70079D1DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E06EE97A26428BE70079D1DA /* Assets.xcassets */; };
@@ -26,7 +29,7 @@
 		E06EE9BB2642A6760079D1DA /* DAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE9BA2642A6760079D1DA /* DAPI.swift */; };
 		E06EE9BE2642A9E30079D1DA /* PersonListSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE9BD2642A9E30079D1DA /* PersonListSample.swift */; };
 		E06EE9C02642AA200079D1DA /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE9BF2642AA200079D1DA /* MockData.swift */; };
-		E06EE9C22642AC940079D1DA /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE9C12642AC940079D1DA /* APIService.swift */; };
+		E06EE9C22642AC940079D1DA /* MoyaConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE9C12642AC940079D1DA /* MoyaConfig.swift */; };
 		E06EE9C52642B35E0079D1DA /* PersonName.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE9C42642B35E0079D1DA /* PersonName.swift */; };
 		E06EE9C82642B5030079D1DA /* LatLon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE9C72642B5030079D1DA /* LatLon.swift */; };
 		E4CECEE5A089010B6853AE90 /* Pods_LocationListing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D16AFE84E808DC604BDBB0E3 /* Pods_LocationListing.framework */; };
@@ -58,6 +61,9 @@
 		D16AFE84E808DC604BDBB0E3 /* Pods_LocationListing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocationListing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF57E5E83C131BA9F33D1490 /* Pods-LocationListing-LocationListingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocationListing-LocationListingUITests.release.xcconfig"; path = "Target Support Files/Pods-LocationListing-LocationListingUITests/Pods-LocationListing-LocationListingUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E05426922644EA09008DAACE /* ObjectMapper+Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObjectMapper+Realm.swift"; sourceTree = "<group>"; };
+		E05426962644F8F9008DAACE /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
+		E054269826450673008DAACE /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		E054269A264506FF008DAACE /* DAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAPIService.swift; sourceTree = "<group>"; };
 		E06EE96E26428BE60079D1DA /* LocationListing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocationListing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E06EE97126428BE60079D1DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E06EE97326428BE60079D1DA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,7 +86,7 @@
 		E06EE9BA2642A6760079D1DA /* DAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAPI.swift; sourceTree = "<group>"; };
 		E06EE9BD2642A9E30079D1DA /* PersonListSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListSample.swift; sourceTree = "<group>"; };
 		E06EE9BF2642AA200079D1DA /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
-		E06EE9C12642AC940079D1DA /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		E06EE9C12642AC940079D1DA /* MoyaConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaConfig.swift; sourceTree = "<group>"; };
 		E06EE9C42642B35E0079D1DA /* PersonName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonName.swift; sourceTree = "<group>"; };
 		E06EE9C72642B5030079D1DA /* LatLon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatLon.swift; sourceTree = "<group>"; };
 		E948A7613857BAACC1E067BE /* Pods-LocationListing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocationListing.release.xcconfig"; path = "Target Support Files/Pods-LocationListing/Pods-LocationListing.release.xcconfig"; sourceTree = "<group>"; };
@@ -138,12 +144,45 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E05426912644E9F1008DAACE /* Helps */ = {
+		E05426912644E9F1008DAACE /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				E05426922644EA09008DAACE /* ObjectMapper+Realm.swift */,
 			);
-			path = Helps;
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E05426942644F8D8008DAACE /* DBService */ = {
+			isa = PBXGroup;
+			children = (
+				E05426952644F8E7008DAACE /* RealmService */,
+			);
+			path = DBService;
+			sourceTree = "<group>";
+		};
+		E05426952644F8E7008DAACE /* RealmService */ = {
+			isa = PBXGroup;
+			children = (
+				E05426962644F8F9008DAACE /* RealmService.swift */,
+			);
+			path = RealmService;
+			sourceTree = "<group>";
+		};
+		E054269C26450706008DAACE /* Moya */ = {
+			isa = PBXGroup;
+			children = (
+				E06EE9C12642AC940079D1DA /* MoyaConfig.swift */,
+				E054269D264514AA008DAACE /* APIConfigs */,
+			);
+			path = Moya;
+			sourceTree = "<group>";
+		};
+		E054269D264514AA008DAACE /* APIConfigs */ = {
+			isa = PBXGroup;
+			children = (
+				E06EE9BA2642A6760079D1DA /* DAPI.swift */,
+			);
+			path = APIConfigs;
 			sourceTree = "<group>";
 		};
 		E06EE96526428BE60079D1DA = {
@@ -171,7 +210,7 @@
 		E06EE97026428BE60079D1DA /* LocationListing */ = {
 			isa = PBXGroup;
 			children = (
-				E05426912644E9F1008DAACE /* Helps */,
+				E05426912644E9F1008DAACE /* Helpers */,
 				E06EE9A5264292220079D1DA /* Modules */,
 				E06EE97126428BE60079D1DA /* AppDelegate.swift */,
 				E06EE97326428BE60079D1DA /* SceneDelegate.swift */,
@@ -249,6 +288,7 @@
 		E06EE9B82642A6340079D1DA /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E05426942644F8D8008DAACE /* DBService */,
 				E06EE9B92642A63D0079D1DA /* NetworkService */,
 			);
 			path = Services;
@@ -257,9 +297,10 @@
 		E06EE9B92642A63D0079D1DA /* NetworkService */ = {
 			isa = PBXGroup;
 			children = (
-				E06EE9C12642AC940079D1DA /* APIService.swift */,
+				E054269826450673008DAACE /* APIService.swift */,
+				E054269A264506FF008DAACE /* DAPIService.swift */,
+				E054269C26450706008DAACE /* Moya */,
 				E06EE9B52642A5F70079D1DA /* Model */,
-				E06EE9C32642AD9D0079D1DA /* APIs */,
 				E06EE9BC2642A9C90079D1DA /* MockData */,
 			);
 			path = NetworkService;
@@ -272,14 +313,6 @@
 				E06EE9BD2642A9E30079D1DA /* PersonListSample.swift */,
 			);
 			path = MockData;
-			sourceTree = "<group>";
-		};
-		E06EE9C32642AD9D0079D1DA /* APIs */ = {
-			isa = PBXGroup;
-			children = (
-				E06EE9BA2642A6760079D1DA /* DAPI.swift */,
-			);
-			path = APIs;
 			sourceTree = "<group>";
 		};
 		E06EE9C62642B4A70079D1DA /* Person */ = {
@@ -585,8 +618,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E054269926450673008DAACE /* APIService.swift in Sources */,
 				E06EE9C82642B5030079D1DA /* LatLon.swift in Sources */,
-				E06EE9C22642AC940079D1DA /* APIService.swift in Sources */,
+				E06EE9C22642AC940079D1DA /* MoyaConfig.swift in Sources */,
+				E054269B264506FF008DAACE /* DAPIService.swift in Sources */,
 				E06EE9C52642B35E0079D1DA /* PersonName.swift in Sources */,
 				E06EE9AA264293000079D1DA /* MultiLocationMapViewController.swift in Sources */,
 				E06EE9B12642A3F20079D1DA /* PersonsListTableViewCell.swift in Sources */,
@@ -600,6 +635,7 @@
 				E06EE9B72642A6020079D1DA /* Person.swift in Sources */,
 				E06EE9C02642AA200079D1DA /* MockData.swift in Sources */,
 				E06EE97426428BE60079D1DA /* SceneDelegate.swift in Sources */,
+				E05426972644F8F9008DAACE /* RealmService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

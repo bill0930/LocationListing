@@ -9,10 +9,10 @@ import Foundation
 import ObjectMapper
 import RealmSwift
 
-class PersonName: Object, Mappable {
+class PersonName: EmbeddedObject, Mappable {
 
-    @objc dynamic var first: String = ""
-    @objc dynamic var last: String = ""
+    @objc dynamic var first: String?
+    @objc dynamic var last: String?
 
     required convenience init?(map: Map) {
         self.init()

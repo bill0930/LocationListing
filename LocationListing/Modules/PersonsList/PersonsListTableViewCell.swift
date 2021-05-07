@@ -21,7 +21,6 @@ final class PersonsListTableViewCell: UITableViewCell {
 
     lazy private var avatarView: UIImageView = {
         let imageView = UIImageView()
-//        imageView.backgroundColor = UIImage
         imageView.layer.cornerRadius = 22
         imageView.layer.masksToBounds = true
         imageView.isSkeletonable = true

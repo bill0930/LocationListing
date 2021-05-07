@@ -8,6 +8,7 @@
 import XCTest
 @testable import LocationListing
 import ObjectMapper
+import Moya
 
 class LocationListingTests: XCTestCase {
 
@@ -25,7 +26,8 @@ class LocationListingTests: XCTestCase {
 
     func testDAPIGetPersonListAndMapping() {
         let promise = expectation(description: "DPI.getPersonList.mapping")
-        sut.DAPI.request(DAPI.personsList) { result in
+
+        sut.dapiService.provider.request(DAPI.personsList) { result in
             switch result {
             case .success(let response):
                 if let json = try? response.mapJSON() {

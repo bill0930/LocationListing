@@ -34,7 +34,7 @@ final class PersonsListViewController: UIViewController {
         setCallbacksHandler()
         addSubViews()
         makeConstraints()
-        viewModel.getPersonList(completion: nil)
+        viewModel.retrievePersonList(completion: nil)
 
     }
 
@@ -86,7 +86,7 @@ extension PersonsListViewController {
     }
 
     @objc private func pullToRefresh() {
-        viewModel.getPersonList(completion: nil)
+        viewModel.pullToRefresh()
     }
 
 }

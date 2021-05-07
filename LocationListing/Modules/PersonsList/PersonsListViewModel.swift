@@ -15,11 +15,18 @@ protocol PersonsListViewModelProtocol: AnyObject {
 
     var updateLoadingStatus: ((Bool) -> Void)? { get set }
     var didFinishFetch: (() -> Void)? { get set }
-    func getPersonList(completion: (([Person]) -> Void)?)
+
+    func pullToRefresh()
+    func retrievePersonList(completion: (([Person]) -> Void)?)
 }
 
 final class PersonsListViewModel: PersonsListViewModelProtocol {
+
     var apiService: APIServiceProtocol?
+
+    init(apiService: APIServiceProtocol) {
+        self.apiService = apiService
+    }
 
     var persons: [Person] = [] {
         didSet {
@@ -38,32 +45,15 @@ final class PersonsListViewModel: PersonsListViewModelProtocol {
     var updateLoadingStatus: ((Bool) -> Void)?
     var didFinishFetch: (() -> Void)?
 
-    func getPersonList(completion: ( (_ persons: [Person]) -> Void)?) {
+    func retrievePersonList(completion: (([Person]) -> Void)?) {
         isLoading = true
-        DispatchQueue.main.async { [ weak self ] in
-            self?.apiService?.DAPI.request(.personsList) { [weak self] result in
-                guard let strongSelf = self else { return }
-                switch result {
-                case .success(let response):
-                    if let json = try? response.mapJSON() {
-                        if let persons = Mapper<Person>().mapArray(JSONObject: json) {
-                            strongSelf.persons = persons
-                            completion?(persons)
-                        }
-                    } else {
-                        strongSelf.persons = []
-                        completion?([])
-                    }
-
-                case .failure(let error):
-                    print("DPI.get.personsList failure with \(error.localizedDescription)")
-                    completion?(strongSelf.persons)
-                }
-            }
-        }
+        apiService?.dapiService.getPersonList(completion: { [weak self ] persons in
+            self?.persons = persons
+            completion?(persons)
+        })
     }
 
-    init(apiService: APIServiceProtocol) {
-        self.apiService = apiService
+    func pullToRefresh() {
+        self.retrievePersonList(completion: nil)
     }
 }

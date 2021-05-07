@@ -9,9 +9,9 @@ import Foundation
 import ObjectMapper
 import RealmSwift
 
-class LatLon: Object, Mappable {
+class LatLon: EmbeddedObject, Mappable {
 
-    @objc dynamic var latitude = 0.0
+    var latitude = RealmOptional<Double>()
     var longitude = RealmOptional<Double>()
 
     required convenience init?(map: Map) {
