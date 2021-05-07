@@ -6,9 +6,12 @@
 //
 
 import Foundation
+import GoogleMaps
+
 protocol SingleLocationMapViewModelProtocol {
     var person: Person { get set }
 }
+
 class SingleLocationMapViewModel: SingleLocationMapViewModelProtocol {
     var person: Person
 

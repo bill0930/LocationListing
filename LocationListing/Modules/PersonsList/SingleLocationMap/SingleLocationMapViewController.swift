@@ -6,10 +6,25 @@
 //
 
 import UIKit
+import GoogleMaps
+
+struct Constants {
+    static let defaultLatitude: Double = 22.302711
+    static let defaultLongitude: Double = 114.177216
+    static let defaultZoomLevel: Float = 12.0
+}
 
 class SingleLocationMapViewController: UIViewController {
 
     let viewModel: SingleLocationMapViewModelProtocol
+
+    lazy private var mapView: GMSMapView = {
+        let mapView = GMSMapView()
+        mapView.camera = GMSCameraPosition(latitude: Constants.defaultLatitude,
+                                           longitude: Constants.defaultLongitude,
+                                           zoom: Constants.defaultZoomLevel)
+        return mapView
+    }()
 
     lazy private var bottomInfoView: UIView = {
         let view = UIView()
@@ -28,7 +43,7 @@ class SingleLocationMapViewController: UIViewController {
         let label = UILabel()
         label.numberOfLines = 1
         label.font = UIFont(name: "Avenir", size: 14.0)
-        label.textColor = UIColor(named: "pink_003")
+        label.textColor = UIColor(named: "pink001")
         return label
     }()
 
@@ -36,7 +51,7 @@ class SingleLocationMapViewController: UIViewController {
         let label = UILabel()
         label.numberOfLines = 1
         label.font = UIFont(name: "Avenir", size: 14.0)
-        label.textColor = UIColor(named: "pink_003")
+        label.textColor = UIColor(named: "pink001")
         return label
     }()
 
@@ -60,6 +75,7 @@ class SingleLocationMapViewController: UIViewController {
 
 extension SingleLocationMapViewController {
     private func addSubViews() {
+        view.addSubview(mapView)
         bottomInfoView.addSubview(avatarView)
         bottomInfoView.addSubview(nameLabel)
         bottomInfoView.addSubview(emailLabel)
@@ -71,6 +87,13 @@ extension SingleLocationMapViewController {
         bottomInfoView.snp.makeConstraints {
             $0.bottom.left.right.equalToSuperview()
             $0.height.equalTo(76)
+        }
+
+        mapView.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.left.right.equalToSuperview()
+            $0.bottom.equalTo(bottomInfoView.snp.top)
+
         }
 
         avatarView.snp.makeConstraints {
@@ -97,8 +120,7 @@ extension SingleLocationMapViewController {
     }
 
     func updateViews() {
-        if let firstName = viewModel.person.name?.first,
-           let lastName = viewModel.person.name?.last {
+        if let firstName = viewModel.person.name?.first, let lastName = viewModel.person.name?.last {
             nameLabel.text = "\(firstName) \(lastName)"
         }
 
@@ -107,5 +129,22 @@ extension SingleLocationMapViewController {
         let urlString = viewModel.person.picture
         let url = URL(string: urlString)
         avatarView.sd_setImage(with: url)
+
+        let marker = GMSMarker()
+        if let lat = viewModel.person.location.latitude.value, let lon = viewModel.person.location.longitude.value {
+            mapView.camera = GMSCameraPosition(latitude: lat, longitude: lon, zoom: Constants.defaultZoomLevel)
+            marker.position = CLLocationCoordinate2D(latitude: lat, longitude: lon)
+            marker.title = nameLabel.text
+            marker.snippet = viewModel.person.email
+        } else {
+            marker.position = CLLocationCoordinate2D(latitude: Constants.defaultLatitude,
+                                                     longitude: Constants.defaultLongitude)
+            marker.title = nameLabel.text! + "\n (Estimated Location)"
+            marker.snippet = viewModel.person.email
+            marker.icon = GMSMarker.markerImage(with: UIColor(named: "pink005"))
+        }
+
+        marker.map = mapView
+
     }
 }
