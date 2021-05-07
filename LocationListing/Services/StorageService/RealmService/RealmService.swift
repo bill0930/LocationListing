@@ -8,10 +8,9 @@
 import Foundation
 import RealmSwift
 
-// protocol RealmServiceProtocol {
-//    var db: Realm? { get set }
-//    func configSDK()
-// }
+ protocol RealmServiceProtocol {
+    var db: Realm? { get set }
+}
 
 class RealmService {
 

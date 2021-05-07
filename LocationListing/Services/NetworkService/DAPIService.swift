@@ -18,22 +18,16 @@ protocol DAPIServiceProtocol {
 
 final class DAPIService: DAPIServiceProtocol {
 
-    var realm = RealmService.shared.realm
-
     var provider = MoyaProvider<DAPI>(session: MoyaConfig.defaultAlamofireSession(),
                                   plugins: [MoyaConfig.pluginType])
 
     func getPersonList(completion: (([Person]) -> Void)?) {
-        self.provider.request(.personsList) { [weak self] result in
-            guard let strongSelf = self else { return }
+        provider.request(.personsList) { [weak self] result in
             switch result {
             case .success(let response):
                 if let json = try? response.mapJSON() {
                     if let persons = Mapper<Person>().mapArray(JSONObject: json) {
                         completion?(persons)
-                        try? strongSelf.realm.write {
-                            strongSelf.realm.add(persons, update: .all)
-                        }
                     } else {
                         completion?([])
                     }

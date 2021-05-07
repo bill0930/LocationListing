@@ -9,7 +9,7 @@ import Foundation
 import ObjectMapper
 
 protocol PersonsListViewModelProtocol: AnyObject {
-    var apiService: APIServiceProtocol? { get }
+    var storageService: StorageServiceProtocol { get }
 
     var persons: [Person] { get set }
 
@@ -22,10 +22,10 @@ protocol PersonsListViewModelProtocol: AnyObject {
 
 final class PersonsListViewModel: PersonsListViewModelProtocol {
 
-    var apiService: APIServiceProtocol?
+    var storageService: StorageServiceProtocol
 
-    init(apiService: APIServiceProtocol) {
-        self.apiService = apiService
+    init(storageService: StorageServiceProtocol) {
+        self.storageService = storageService
     }
 
     var persons: [Person] = [] {
@@ -47,10 +47,10 @@ final class PersonsListViewModel: PersonsListViewModelProtocol {
 
     func retrievePersonList(completion: (([Person]) -> Void)?) {
         isLoading = true
-        apiService?.dapiService.getPersonList(completion: { [weak self ] persons in
-            self?.persons = persons
-            completion?(persons)
-        })
+        storageService.retrievePersonlist { [weak self] persons in
+            guard let strongSelf = self else { return }
+            strongSelf.persons = persons
+        }
     }
 
     func pullToRefresh() {

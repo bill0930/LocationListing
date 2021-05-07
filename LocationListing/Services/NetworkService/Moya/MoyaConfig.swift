@@ -24,8 +24,8 @@ class MoyaConfig {
     static func defaultAlamofireSession() -> Session {
         let configuration = URLSessionConfiguration.default
         configuration.headers = .default
-        configuration.timeoutIntervalForRequest = 20.0
-        configuration.timeoutIntervalForResource = 20.0
+        configuration.timeoutIntervalForRequest = 5.0
+        configuration.timeoutIntervalForResource = 5.0
 
         return Session(configuration: configuration, startRequestsImmediately: false)
     }

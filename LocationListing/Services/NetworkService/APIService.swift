@@ -16,4 +16,5 @@ protocol APIServiceProtocol {
 
 final class APIService: APIServiceProtocol {
     var dapiService: DAPIServiceProtocol = DAPIService()
+    init() {}
 }

@@ -13,6 +13,7 @@
 		E05426972644F8F9008DAACE /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05426962644F8F9008DAACE /* RealmService.swift */; };
 		E054269926450673008DAACE /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E054269826450673008DAACE /* APIService.swift */; };
 		E054269B264506FF008DAACE /* DAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E054269A264506FF008DAACE /* DAPIService.swift */; };
+		E05426A026453B61008DAACE /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E054269F26453B61008DAACE /* StorageService.swift */; };
 		E06EE97226428BE60079D1DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE97126428BE60079D1DA /* AppDelegate.swift */; };
 		E06EE97426428BE60079D1DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE97326428BE60079D1DA /* SceneDelegate.swift */; };
 		E06EE97B26428BE70079D1DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E06EE97A26428BE70079D1DA /* Assets.xcassets */; };
@@ -64,6 +65,7 @@
 		E05426962644F8F9008DAACE /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		E054269826450673008DAACE /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		E054269A264506FF008DAACE /* DAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAPIService.swift; sourceTree = "<group>"; };
+		E054269F26453B61008DAACE /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		E06EE96E26428BE60079D1DA /* LocationListing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocationListing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E06EE97126428BE60079D1DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E06EE97326428BE60079D1DA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -152,14 +154,6 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		E05426942644F8D8008DAACE /* DBService */ = {
-			isa = PBXGroup;
-			children = (
-				E05426952644F8E7008DAACE /* RealmService */,
-			);
-			path = DBService;
-			sourceTree = "<group>";
-		};
 		E05426952644F8E7008DAACE /* RealmService */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +177,15 @@
 				E06EE9BA2642A6760079D1DA /* DAPI.swift */,
 			);
 			path = APIConfigs;
+			sourceTree = "<group>";
+		};
+		E054269E26453B41008DAACE /* StorageService */ = {
+			isa = PBXGroup;
+			children = (
+				E054269F26453B61008DAACE /* StorageService.swift */,
+				E05426952644F8E7008DAACE /* RealmService */,
+			);
+			path = StorageService;
 			sourceTree = "<group>";
 		};
 		E06EE96526428BE60079D1DA = {
@@ -288,7 +291,7 @@
 		E06EE9B82642A6340079D1DA /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				E05426942644F8D8008DAACE /* DBService */,
+				E054269E26453B41008DAACE /* StorageService */,
 				E06EE9B92642A63D0079D1DA /* NetworkService */,
 			);
 			path = Services;
@@ -623,6 +626,7 @@
 				E06EE9C22642AC940079D1DA /* MoyaConfig.swift in Sources */,
 				E054269B264506FF008DAACE /* DAPIService.swift in Sources */,
 				E06EE9C52642B35E0079D1DA /* PersonName.swift in Sources */,
+				E05426A026453B61008DAACE /* StorageService.swift in Sources */,
 				E06EE9AA264293000079D1DA /* MultiLocationMapViewController.swift in Sources */,
 				E06EE9B12642A3F20079D1DA /* PersonsListTableViewCell.swift in Sources */,
 				E06EE9BE2642A9E30079D1DA /* PersonListSample.swift in Sources */,

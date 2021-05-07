@@ -112,7 +112,7 @@ extension PersonsListTableViewCell {
 
         emailLabel.text = cellModel.person.email
 
-        var urlString = cellModel.person.picture
+        let urlString = cellModel.person.picture
         let url = URL(string: urlString)
         avatarView.sd_setImage(with: url)
     }

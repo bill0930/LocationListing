@@ -11,8 +11,8 @@ import Moya
 final class TabBarController: UITabBarController {
 
     lazy private var personListVC: PersonsListViewController = {
-        let apiService = APIService()
-        let viewModel = PersonsListViewModel(apiService: apiService)
+        let storageService = StorageService()
+        let viewModel = PersonsListViewModel(storageService: storageService)
         let viewController = PersonsListViewController(viewModel: viewModel)
         viewController.title = "List View"
         return viewController
