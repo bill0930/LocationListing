@@ -7,6 +7,7 @@ target 'LocationListing' do
   pod 'SnapKit', '~> 5.0.0'
   pod 'Moya', '~> 14.0'
   pod 'GoogleMaps', '= 4.2.0'
+  pod 'GooglePlaces', '4.2.0'
   pod 'SwiftLint'
   pod 'SkeletonView', '=1.15.0'
   pod 'SDWebImage'
