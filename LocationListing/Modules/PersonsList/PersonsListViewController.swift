@@ -124,6 +124,6 @@ extension PersonsListViewController: UITableViewDelegate {
         let person = viewModel.persons[indexPath.row]
         let viewModel = SingleLocationMapViewModel(person: person)
         let vc = SingleLocationMapViewController(viewModel: viewModel)
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.pushViewController(vc, animated: false)
     }
 }

@@ -79,7 +79,7 @@ final class PersonsListTableViewCell: UITableViewCell {
 }
 
 extension PersonsListTableViewCell {
-    func makeConstraints() {
+    private func makeConstraints() {
         avatarView.snp.makeConstraints {
             $0.leading.equalTo(16)
             $0.top.equalTo(16)
