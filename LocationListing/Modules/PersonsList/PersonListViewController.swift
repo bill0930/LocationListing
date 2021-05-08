@@ -39,8 +39,11 @@ final class PersonListViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        // Prevent Skeleton Loading animation after switching pages
         DispatchQueue.main.async {
             self.tableView.reloadData()
+            self.tableView.hideSkeleton()
         }
     }
 
