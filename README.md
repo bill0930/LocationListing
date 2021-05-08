@@ -14,11 +14,9 @@
 
 `git clone https://github.com/bill0930/LocationListing.git` 
 
-`cd LocationListing && open LocationListing.xcworkspace` 
+`cd LocationListing && pod install && open LocationListing.xcworkspace` 
 
 ## Configuring the Project
-
-`pod install ` first
 
 Configuring the Xcode project requires a GoogleMapAPIKey
 - Please **contact me** or **check my email** **for the GOOGLE APIKEY**, it should be something like (AIzP**0Nw)
