@@ -13,13 +13,12 @@
 ## Open the Project
 
 `git clone https://github.com/bill0930/LocationListing.git` 
+
 `cd LocationListing && open LocationListing.xcworkspace` 
 
 ## Configuring the Project
 
-We are using CocoaPod for Dependency Management. The `/Pods` folder has been tracked with git. Therefore, doing `pod install` is optional.
-
-
+`pod install ` first
 
 Configuring the Xcode project requires a GoogleMapAPIKey
 - Please **contact me** or **check my email** **for the GOOGLE APIKEY**, it should be something like (AIzP**0Nw)
