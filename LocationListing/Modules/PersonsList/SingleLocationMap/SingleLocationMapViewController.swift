@@ -8,6 +8,14 @@
 import UIKit
 import GoogleMaps
 
+private struct Constants {
+    static let viewBackgroundColor = UIColor(named: "pink005")!
+    static let avatarCornerRadius = CGFloat(22.0)
+    static let avatarImageSize = CGFloat(44)
+    static let labelFont = UIFont(name: "Avenir", size: 14.0)
+    static let labelTextColor = UIColor(named: "pink001")
+}
+
 class SingleLocationMapViewController: UIViewController {
 
     var viewModel: SingleLocationMapViewModelProtocol
@@ -22,13 +30,13 @@ class SingleLocationMapViewController: UIViewController {
 
     lazy private var bottomInfoView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(named: "pink005")
+        view.backgroundColor = Constants.viewBackgroundColor
         return view
     }()
 
     lazy private var avatarView: UIImageView = {
         let imageView = UIImageView()
-        imageView.layer.cornerRadius = 22
+        imageView.layer.cornerRadius = Constants.avatarCornerRadius
         imageView.layer.masksToBounds = true
         return imageView
     }()
@@ -36,16 +44,16 @@ class SingleLocationMapViewController: UIViewController {
     lazy private var nameLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
-        label.font = UIFont(name: "Avenir", size: 14.0)
-        label.textColor = UIColor(named: "pink001")
+        label.font = Constants.labelFont
+        label.textColor = Constants.labelTextColor
         return label
     }()
 
     lazy private var emailLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
-        label.font = UIFont(name: "Avenir", size: 14.0)
-        label.textColor = UIColor(named: "pink001")
+        label.font = Constants.labelFont
+        label.textColor = Constants.labelTextColor
         return label
     }()
 

@@ -8,6 +8,10 @@
 import Foundation
 import GoogleMaps
 
+private struct Constants {
+    static let failedMarkerColor = UIColor(named: "pink005")!
+}
+
 protocol MultiLocationMapViewModelProtocol {
     var viewController: MultiLocationMapViewModelDelegate? { get set }
     var storageService: StorageServiceProtocol { get }
@@ -49,7 +53,7 @@ class MultiLocationMapViewModel: MultiLocationMapViewModelProtocol {
                 marker.position = CLLocationCoordinate2D(latitude: GoogleMapConstants.defaultLatitude,
                                                          longitude: GoogleMapConstants.defaultLongitude)
                 marker.title = "\(first) \(last) (Estimated)"
-                marker.icon = GMSMarker.markerImage(with: UIColor(named: "pink005"))
+                marker.icon = GMSMarker.markerImage(with: Constants.failedMarkerColor)
             }
 
             marker.map = viewController?.getMapView()

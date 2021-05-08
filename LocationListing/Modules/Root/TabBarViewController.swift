@@ -8,17 +8,30 @@
 import UIKit
 import Moya
 
+private struct Constants {
+    static let personListViewTitle = "List View"
+    static let personListViewImage = UIImage(systemName: "info.circle")
+    static let personListViewSelectedImage = UIImage(systemName: "info.circle.fill")
+
+    static let multiLocViewTitle = "Map View"
+    static let multiLocViewImage = UIImage(systemName: "map")
+    static let multiLocViewSelectedImage = UIImage(systemName: "map.fill")
+
+    static let tabBarTintColor = UIColor(named: "pink001")
+    static let tabBarBarTintColor = UIColor(named: "pink005")
+    static let tabBarBarForegroundColor = UIColor(named: "pink001")
+    static let tabBarBarFont = UIFont(name: "Avenir Book", size: 14.0)
+
+}
+
 final class TabBarController: UITabBarController {
 
     lazy private var personListVC: PersonListViewController = {
         let viewModel = PersonListViewModel()
         let viewController = PersonListViewController(viewModel: viewModel)
-
-        let title = "List View"
-        let image = UIImage(systemName: "info.circle")
-        let selectedImage = UIImage(systemName: "info.circle.fill")
-        let tabBarItem = UITabBarItem(title: title, image: image, selectedImage: selectedImage)
-        tabBar.tintColor = UIColor(named: "pink001")
+        let tabBarItem = UITabBarItem(title: Constants.personListViewTitle,
+                                      image: Constants.personListViewImage,
+                                      selectedImage: Constants.personListViewSelectedImage)
         viewController.tabBarItem = tabBarItem
         return viewController
     }()
@@ -26,26 +39,22 @@ final class TabBarController: UITabBarController {
     lazy private var multiLocationVC: MultiLocationMapViewController = {
         let viewModel = MultiLocationMapViewModel()
         let viewController = MultiLocationMapViewController(viewModel: viewModel)
-        let title = "Map View"
-        let image = UIImage(systemName: "map")
-        let selectedImage = UIImage(systemName: "map.fill")
-        let tabBarItem = UITabBarItem(title: title, image: image, selectedImage: selectedImage)
+        let tabBarItem = UITabBarItem(title: Constants.multiLocViewTitle,
+                                      image: Constants.multiLocViewImage,
+                                      selectedImage: Constants.multiLocViewSelectedImage)
 
-        tabBarItem.title = title
-        viewController.title = title
-        viewController.navigationItem.title = title
         viewController.tabBarItem = tabBarItem
         return viewController
     }()
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        tabBar.tintColor = UIColor(named: "pink001")
-        tabBar.barTintColor = UIColor(named: "pink005")
+        tabBar.tintColor = Constants.tabBarTintColor
+        tabBar.barTintColor = Constants.tabBarBarTintColor
 
         UITabBarItem.appearance().setTitleTextAttributes([
-            .foregroundColor: UIColor(named: "pink001")!,
-            .font: UIFont(name: "Avenir Book", size: 14.0)!
+            .foregroundColor: Constants.tabBarBarForegroundColor!,
+            .font: Constants.tabBarBarFont!
         ], for: .normal)
     }
 

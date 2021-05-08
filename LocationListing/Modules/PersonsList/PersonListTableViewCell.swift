@@ -9,6 +9,13 @@ import UIKit
 import SnapKit
 import SDWebImage
 
+private struct Constants {
+    static let avatarCornerRadius = CGFloat(22.0)
+    static let avatarImageSize = CGFloat(44)
+    static let labelFont = UIFont(name: "Avenir", size: 14.0)
+    static let labelTextColor = UIColor(named: "pink_003")
+}
+
 protocol PersonListTableViewCellModelProtocol {
     var person: Person { get }
 }
@@ -21,7 +28,7 @@ final class PersonListTableViewCell: UITableViewCell {
 
     lazy private var avatarView: UIImageView = {
         let imageView = UIImageView()
-        imageView.layer.cornerRadius = 22
+        imageView.layer.cornerRadius = Constants.avatarCornerRadius
         imageView.layer.masksToBounds = true
         imageView.isSkeletonable = true
         return imageView
@@ -30,8 +37,8 @@ final class PersonListTableViewCell: UITableViewCell {
     lazy private var nameLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
-        label.font = UIFont(name: "Avenir", size: 14.0)
-        label.textColor = UIColor(named: "pink_003")
+        label.font = Constants.labelFont
+        label.textColor = Constants.labelTextColor
         label.isSkeletonable = true
         return label
     }()
@@ -39,8 +46,8 @@ final class PersonListTableViewCell: UITableViewCell {
     lazy private var emailLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
-        label.font = UIFont(name: "Avenir", size: 14.0)
-        label.textColor = UIColor(named: "pink_003")
+        label.font = Constants.labelFont
+        label.textColor = Constants.labelTextColor
         label.isSkeletonable = true
         return label
     }()
@@ -81,9 +88,9 @@ final class PersonListTableViewCell: UITableViewCell {
 extension PersonListTableViewCell {
     private func makeConstraints() {
         avatarView.snp.makeConstraints {
+            $0.size.equalTo(Constants.avatarImageSize)
             $0.leading.equalTo(16)
             $0.top.equalTo(16)
-            $0.size.equalTo(44)
             $0.bottom.equalTo(-16)
         }
 

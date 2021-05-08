@@ -10,14 +10,20 @@ import Moya
 import SnapKit
 import SkeletonView
 
+private struct Constants {
+    static let tableViewRowHeight = CGFloat(76.0)
+    static let viewBackgroundColor = UIColor(named: "pink003")!
+    static let skeletonGradientColor = UIColor(named: "pink004")!
+}
+
 final class PersonListViewController: UIViewController {
 
     lazy private var tableView: UITableView = {
         let tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.estimatedRowHeight = 76
-        tableView.rowHeight = 76
+        tableView.estimatedRowHeight = Constants.tableViewRowHeight
+        tableView.rowHeight = Constants.tableViewRowHeight
         tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
         let refreshControl = UIRefreshControl()
@@ -39,7 +45,7 @@ final class PersonListViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+
         // Prevent Skeleton Loading animation after switching pages
         DispatchQueue.main.async {
             self.tableView.reloadData()
@@ -62,7 +68,7 @@ final class PersonListViewController: UIViewController {
 
 extension PersonListViewController {
     private func addSubViews() {
-        view.backgroundColor = UIColor(named: "pink003")!
+        view.backgroundColor = Constants.viewBackgroundColor
         view.addSubview(tableView)
     }
 
@@ -78,7 +84,7 @@ extension PersonListViewController {
     private func setCallbacksHandler() {
         viewModel.updateLoadingStatus = {  [weak self] isLoading in
             if isLoading == true {
-                let gradient = SkeletonGradient(baseColor: UIColor(named: "pink004")!)
+                let gradient = SkeletonGradient(baseColor: Constants.skeletonGradientColor)
                 let animation = SkeletonAnimationBuilder().makeSlidingAnimation(withDirection: .leftRight)
                 self?.tableView.isSkeletonable = true
                 self?.tableView.showAnimatedGradientSkeleton(usingGradient: gradient, animation: animation)
