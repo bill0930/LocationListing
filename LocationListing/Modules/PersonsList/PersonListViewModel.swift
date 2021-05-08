@@ -8,7 +8,7 @@
 import Foundation
 import ObjectMapper
 
-protocol PersonsListViewModelProtocol: AnyObject {
+protocol PersonListViewModelProtocol: AnyObject {
     var storageService: StorageServiceProtocol { get }
 
     var persons: [Person] { get set }
@@ -23,7 +23,7 @@ protocol PersonsListViewModelProtocol: AnyObject {
     func retrievePersonList(completion: (([Person]) -> Void)?)
 }
 
-final class PersonsListViewModel: PersonsListViewModelProtocol {
+final class PersonListViewModel: PersonListViewModelProtocol {
 
     var storageService: StorageServiceProtocol = StorageService()
 

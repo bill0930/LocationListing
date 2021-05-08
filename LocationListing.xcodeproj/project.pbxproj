@@ -22,11 +22,11 @@
 		E06EE98926428BE70079D1DA /* LocationListingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE98826428BE70079D1DA /* LocationListingTests.swift */; };
 		E06EE99426428BE70079D1DA /* LocationListingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE99326428BE70079D1DA /* LocationListingUITests.swift */; };
 		E06EE9A22642914A0079D1DA /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE9A12642914A0079D1DA /* TabBarViewController.swift */; };
-		E06EE9A42642921E0079D1DA /* PersonsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE9A32642921E0079D1DA /* PersonsListViewController.swift */; };
+		E06EE9A42642921E0079D1DA /* PersonListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE9A32642921E0079D1DA /* PersonListViewController.swift */; };
 		E06EE9AA264293000079D1DA /* MultiLocationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE9A9264293000079D1DA /* MultiLocationMapViewController.swift */; };
 		E06EE9AF26429A540079D1DA /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E06EE9AE26429A540079D1DA /* Colors.xcassets */; };
-		E06EE9B12642A3F20079D1DA /* PersonsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE9B02642A3F20079D1DA /* PersonsListTableViewCell.swift */; };
-		E06EE9B32642A4D10079D1DA /* PersonsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE9B22642A4D10079D1DA /* PersonsListViewModel.swift */; };
+		E06EE9B12642A3F20079D1DA /* PersonListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE9B02642A3F20079D1DA /* PersonListTableViewCell.swift */; };
+		E06EE9B32642A4D10079D1DA /* PersonListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE9B22642A4D10079D1DA /* PersonListViewModel.swift */; };
 		E06EE9B72642A6020079D1DA /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE9B62642A6020079D1DA /* Person.swift */; };
 		E06EE9BB2642A6760079D1DA /* DAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE9BA2642A6760079D1DA /* DAPI.swift */; };
 		E06EE9BE2642A9E30079D1DA /* PersonListSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE9BD2642A9E30079D1DA /* PersonListSample.swift */; };
@@ -87,11 +87,11 @@
 		E06EE99326428BE70079D1DA /* LocationListingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListingUITests.swift; sourceTree = "<group>"; };
 		E06EE99526428BE70079D1DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E06EE9A12642914A0079D1DA /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
-		E06EE9A32642921E0079D1DA /* PersonsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonsListViewController.swift; sourceTree = "<group>"; };
+		E06EE9A32642921E0079D1DA /* PersonListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListViewController.swift; sourceTree = "<group>"; };
 		E06EE9A9264293000079D1DA /* MultiLocationMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiLocationMapViewController.swift; sourceTree = "<group>"; };
 		E06EE9AE26429A540079D1DA /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
-		E06EE9B02642A3F20079D1DA /* PersonsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonsListTableViewCell.swift; sourceTree = "<group>"; };
-		E06EE9B22642A4D10079D1DA /* PersonsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonsListViewModel.swift; sourceTree = "<group>"; };
+		E06EE9B02642A3F20079D1DA /* PersonListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListTableViewCell.swift; sourceTree = "<group>"; };
+		E06EE9B22642A4D10079D1DA /* PersonListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListViewModel.swift; sourceTree = "<group>"; };
 		E06EE9B62642A6020079D1DA /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		E06EE9BA2642A6760079D1DA /* DAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAPI.swift; sourceTree = "<group>"; };
 		E06EE9BD2642A9E30079D1DA /* PersonListSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListSample.swift; sourceTree = "<group>"; };
@@ -281,9 +281,9 @@
 		E06EE9A6264292270079D1DA /* PersonsList */ = {
 			isa = PBXGroup;
 			children = (
-				E06EE9A32642921E0079D1DA /* PersonsListViewController.swift */,
-				E06EE9B02642A3F20079D1DA /* PersonsListTableViewCell.swift */,
-				E06EE9B22642A4D10079D1DA /* PersonsListViewModel.swift */,
+				E06EE9A32642921E0079D1DA /* PersonListViewController.swift */,
+				E06EE9B02642A3F20079D1DA /* PersonListTableViewCell.swift */,
+				E06EE9B22642A4D10079D1DA /* PersonListViewModel.swift */,
 				E06EE9A8264292D60079D1DA /* SingleLocationMap */,
 			);
 			path = PersonsList;
@@ -677,13 +677,13 @@
 				E05426A026453B61008DAACE /* StorageService.swift in Sources */,
 				E0A992682645AD1500F58DBA /* MultiLocationMapViewModel.swift in Sources */,
 				E06EE9AA264293000079D1DA /* MultiLocationMapViewController.swift in Sources */,
-				E06EE9B12642A3F20079D1DA /* PersonsListTableViewCell.swift in Sources */,
+				E06EE9B12642A3F20079D1DA /* PersonListTableViewCell.swift in Sources */,
 				E06EE9BE2642A9E30079D1DA /* PersonListSample.swift in Sources */,
 				E06EE9A22642914A0079D1DA /* TabBarViewController.swift in Sources */,
 				E0C67F1B26458A2800258E1D /* SingleLocationMapViewModel.swift in Sources */,
 				E06EE9BB2642A6760079D1DA /* DAPI.swift in Sources */,
-				E06EE9B32642A4D10079D1DA /* PersonsListViewModel.swift in Sources */,
-				E06EE9A42642921E0079D1DA /* PersonsListViewController.swift in Sources */,
+				E06EE9B32642A4D10079D1DA /* PersonListViewModel.swift in Sources */,
+				E06EE9A42642921E0079D1DA /* PersonListViewController.swift in Sources */,
 				E05426932644EA09008DAACE /* ObjectMapper+Realm.swift in Sources */,
 				E0C67F142645814C00258E1D /* SingleLocationMapViewController.swift in Sources */,
 				E06EE97226428BE60079D1DA /* AppDelegate.swift in Sources */,

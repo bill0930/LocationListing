@@ -10,9 +10,9 @@ import Moya
 
 final class TabBarController: UITabBarController {
 
-    lazy private var personListVC: PersonsListViewController = {
-        let viewModel = PersonsListViewModel()
-        let viewController = PersonsListViewController(viewModel: viewModel)
+    lazy private var personListVC: PersonListViewController = {
+        let viewModel = PersonListViewModel()
+        let viewController = PersonListViewController(viewModel: viewModel)
 
         let title = "List View"
         let image = UIImage(systemName: "info.circle")

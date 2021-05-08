@@ -9,15 +9,15 @@ import UIKit
 import SnapKit
 import SDWebImage
 
-protocol PersonsListTableViewCellModelProtocol {
+protocol PersonListTableViewCellModelProtocol {
     var person: Person { get }
 }
 
-struct PersonsListTableViewCellModel: PersonsListTableViewCellModelProtocol {
+struct PersonListTableViewCellModel: PersonListTableViewCellModelProtocol {
     var person: Person
 }
 
-final class PersonsListTableViewCell: UITableViewCell {
+final class PersonListTableViewCell: UITableViewCell {
 
     lazy private var avatarView: UIImageView = {
         let imageView = UIImageView()
@@ -78,7 +78,7 @@ final class PersonsListTableViewCell: UITableViewCell {
 
 }
 
-extension PersonsListTableViewCell {
+extension PersonListTableViewCell {
     private func makeConstraints() {
         avatarView.snp.makeConstraints {
             $0.leading.equalTo(16)
@@ -104,16 +104,19 @@ extension PersonsListTableViewCell {
 
     }
 
-    func setModel(with cellModel: PersonsListTableViewCellModelProtocol) {
-        if let firstName = cellModel.person.name?.first,
-           let lastName = cellModel.person.name?.last {
-            nameLabel.text = "\(firstName) \(lastName)"
+    func setModel(with cellModel: PersonListTableViewCellModelProtocol) {
+        DispatchQueue.main.async {
+            if let firstName = cellModel.person.name?.first,
+               let lastName = cellModel.person.name?.last {
+                self.nameLabel.text = "\(firstName) \(lastName)"
+            }
+
+            self.emailLabel.text = cellModel.person.email
+
+            let urlString = cellModel.person.picture
+            let url = URL(string: urlString)
+            self.avatarView.sd_setImage(with: url)
         }
 
-        emailLabel.text = cellModel.person.email
-
-        let urlString = cellModel.person.picture
-        let url = URL(string: urlString)
-        avatarView.sd_setImage(with: url)
     }
 }

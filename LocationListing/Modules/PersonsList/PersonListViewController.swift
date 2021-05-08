@@ -1,5 +1,5 @@
 //
-//  PersonsListViewController.swift
+//  PersonListViewController.swift
 //  LocationListing
 //
 //  Created by Billy Chan on 5/5/2021.
@@ -10,7 +10,7 @@ import Moya
 import SnapKit
 import SkeletonView
 
-final class PersonsListViewController: UIViewController {
+final class PersonListViewController: UIViewController {
 
     lazy private var tableView: UITableView = {
         let tableView = UITableView()
@@ -24,7 +24,7 @@ final class PersonsListViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
         tableView.refreshControl = refreshControl
 
-        tableView.register(PersonsListTableViewCell.self, forCellReuseIdentifier: String(describing: PersonsListTableViewCell.self))
+        tableView.register(PersonListTableViewCell.self, forCellReuseIdentifier: String(describing: PersonListTableViewCell.self))
         return tableView
     }()
 
@@ -37,9 +37,16 @@ final class PersonsListViewController: UIViewController {
         viewModel.retrievePersonList(completion: nil)
     }
 
-    let viewModel: PersonsListViewModelProtocol
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
 
-    init(viewModel: PersonsListViewModelProtocol) {
+    let viewModel: PersonListViewModelProtocol
+
+    init(viewModel: PersonListViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -50,7 +57,7 @@ final class PersonsListViewController: UIViewController {
 
 }
 
-extension PersonsListViewController {
+extension PersonListViewController {
     private func addSubViews() {
         view.backgroundColor = UIColor(named: "pink003")!
         view.addSubview(tableView)
@@ -97,10 +104,10 @@ extension PersonsListViewController {
 
 }
 
-extension PersonsListViewController: SkeletonTableViewDataSource {
+extension PersonListViewController: SkeletonTableViewDataSource {
 
     func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
-        return String(describing: PersonsListTableViewCell.self)
+        return String(describing: PersonListTableViewCell.self)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -108,18 +115,18 @@ extension PersonsListViewController: SkeletonTableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: PersonsListTableViewCell.self), for: indexPath) as? PersonsListTableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: PersonListTableViewCell.self), for: indexPath) as? PersonListTableViewCell {
             let person = viewModel.persons[indexPath.row]
-            cell.setModel(with: PersonsListTableViewCellModel(person: person))
+            cell.setModel(with: PersonListTableViewCellModel(person: person))
             return cell
         }
 
-        return PersonsListTableViewCell()
+        return PersonListTableViewCell()
     }
 
 }
 
-extension PersonsListViewController: UITableViewDelegate {
+extension PersonListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let person = viewModel.persons[indexPath.row]
         print(person)
