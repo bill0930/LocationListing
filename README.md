@@ -18,7 +18,7 @@
 
 ## Configuring the Project
 
-Configuring the Xcode project requires a GoogleMapAPIKey
+<!-- Configuring the Xcode project requires a GoogleMapAPIKey
 - Please **contact me** or **check my email** **for the GOOGLE APIKEY**, it should be something like (AIzP**0Nw)
 - `Shift` + `Command` + `O`  or `File` -> `Open Quickly` , find `Config.swift`
 - Paste the API Key as a string for accessing GoogleMapSDK service 
@@ -30,7 +30,7 @@ After pasting the GoogleMap SDK API Key, you could start to try out the app with
 //...
 case .googleMapSDK:
         return "AIzP********0Nw"
-```
+``` -->
 
 ## About LocationListing
 
