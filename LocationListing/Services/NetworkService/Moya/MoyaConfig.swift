@@ -8,7 +8,7 @@
 import Foundation
 import Moya
 class MoyaConfig {
-    static func JSONResponseDataFormatter(_ data: Data) -> String {
+    static func JSONResponseDataFormatter(_ data: Data) -> String {x
         do {
             let dataAsJSON = try JSONSerialization.jsonObject(with: data)
             let prettyData = try JSONSerialization.data(withJSONObject: dataAsJSON, options: .prettyPrinted)

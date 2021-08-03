@@ -13,7 +13,7 @@ enum Config {
     var APIKey: String {
         switch self {
         case .googleMapSDK:
-            return <#GoogleMapSDK API KEY#>
+            return "AIzaSyDScDKWrWg6Ab7qitlzOM-4Z3moEzSozH4"
         }
     }
 }
